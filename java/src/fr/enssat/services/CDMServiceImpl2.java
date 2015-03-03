@@ -29,16 +29,25 @@ public class CDMServiceImpl2 implements CDMService2
 	}
 
 	@Override
-	public void addCDM(CDM newCDM) 
+	public CDM addCDM(CDM newCDM) 
 	{
 		// TODO Auto-generated method stub
+		return null;
 		
 	}
 
 	@Override
-	public void supprimeCDM(String idCDM) {
+	public CDM supprimeCDM(String idCDM) 
+	{
 		// TODO Auto-generated method stub
-		
+		return null;
+	}
+
+	@Override
+	public CDM addCDM(String newCDM) 
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
