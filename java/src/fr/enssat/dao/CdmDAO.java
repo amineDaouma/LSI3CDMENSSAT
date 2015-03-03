@@ -2,6 +2,7 @@ package fr.enssat.dao;
 
 import java.util.List;
 
+import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
 import fr.enssat.beans.OrgUnit;
 import fr.enssat.beans.Program;
@@ -9,6 +10,7 @@ import fr.enssat.beans.Program;
 
 public interface CdmDAO {
 
+	public void uploadCDM(CDM cdm);
 	public void addCourse(Course c);
 	public List<Course> getAllCourses();
 	public void deleteCourseById(String ident);

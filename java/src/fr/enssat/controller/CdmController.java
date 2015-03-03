@@ -1,6 +1,12 @@
 package fr.enssat.controller;
 
+import java.io.StringReader;
 import java.util.List;
+
+
+
+
+
 
 
 
@@ -19,7 +25,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
+import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
 import fr.enssat.beans.OrgUnit;
 import fr.enssat.beans.Program;
@@ -34,6 +44,20 @@ public class CdmController {
 	public CdmController() {
 		super();
 	}
+	
+	@POST
+	@Path("/upload")
+	public void uploadCDM(String data){
+		try {
+			JAXBContext context = JAXBContext.newInstance(CDM.class);
+			Unmarshaller u = context.createUnmarshaller();
+			CDM cdm = (CDM) u.unmarshal(new StringReader(data));
+			service.uploadCDM(cdm);
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@GET
 	@Path("/getCourses")
 	@Produces(MediaType.TEXT_XML)

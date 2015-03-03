@@ -23,6 +23,8 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 
 
+
+import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
 import fr.enssat.beans.CourseCode;
 import fr.enssat.beans.CourseDescription;
@@ -39,15 +41,25 @@ import fr.enssat.beans.Text;
 import fr.enssat.beans.WebLink;
 import fr.enssat.util.HibernateUtil;
 
-public class cdmDAOImpl implements CdmDAO {
+public class CdmDAOImpl implements CdmDAO {
 	
 	List<WebLink> list=new LinkedList<WebLink>();
 	
 	
-	public cdmDAOImpl() {
+	public CdmDAOImpl() {
 		super();
 	}
-
+	
+	public void uploadCDM(CDM cdm){
+		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(cdm);
+		session.getTransaction().commit();
+		session.close();
+		sessionFactory.close();
+	}
+	
 	@Override
 	public void addCourse(Course c) {
 
