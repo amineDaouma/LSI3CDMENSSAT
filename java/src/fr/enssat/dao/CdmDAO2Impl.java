@@ -2,6 +2,10 @@ package fr.enssat.dao;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.classic.Session;
+
 import fr.enssat.beans.CDM;
 import fr.enssat.beans.OrgUnit;
 

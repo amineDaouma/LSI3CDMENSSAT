@@ -6,7 +6,7 @@ import fr.enssat.beans.CDM;
 import fr.enssat.dao.CdmDAO;
 import fr.enssat.dao.CdmDAO2;
 import fr.enssat.dao.CdmDAO2Impl;
-import fr.enssat.dao.cdmDAOImpl;
+import fr.enssat.dao.CdmDAOImpl;
 
 public class CDMServiceImpl2 implements CDMService2
 {

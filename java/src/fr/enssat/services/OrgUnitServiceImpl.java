@@ -13,10 +13,10 @@ public class OrgUnitServiceImpl implements OrgUnitService
 	}
 
 	@Override
-	public boolean updateOrgUnit(String idCDM, OrgUnit newOrgUnit) 
+	public OrgUnit updateOrgUnit(String idCDM, OrgUnit newOrgUnit) 
 	{
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 }

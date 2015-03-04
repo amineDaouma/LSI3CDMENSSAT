@@ -11,11 +11,12 @@ public interface CDMService2
 	
 	
 	public CDM findByID(String idCDM);
-	//retourne le cours ayant pour id IDCourse
+	//retourne le cdm ayant pour programID idCDM
 	//retourne null si le cdm n'est pas trouve
 	 
 	public CDM updateCDM (String idCDM,CDM newCDM);
-	//remplace le cours selectionne par newCourse et retourne findByID(idCDM) ou null si le cdm n'a pas ete trouvé 
+	//remplace le CDM en base ayant pour programID idCDM
+	//retourne null siil n'existe pas de tel CDM
 	
 	public CDM addCDM(CDM newCDM);
 	//ajoute un CDM

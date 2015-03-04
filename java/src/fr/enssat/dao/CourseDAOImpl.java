@@ -2,6 +2,10 @@ package fr.enssat.dao;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.classic.Session;
+
 import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
 
@@ -72,7 +76,7 @@ public class CourseDAOImpl implements CourseDAO{
 	}
 
 	@Override
-	public Course removeCourse(String IDCDM, String idCourse) {
+	public Course removeCourse(String idCDM, String idCourse) {
 		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();

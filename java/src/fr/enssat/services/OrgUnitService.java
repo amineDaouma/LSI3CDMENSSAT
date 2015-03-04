@@ -5,10 +5,10 @@ import fr.enssat.beans.OrgUnit;
 public interface OrgUnitService 
 {
 	OrgUnit getOrgUnit(String idCDM);
-	//retourne l'orgunit lié au cmd identifié par idCDM
+	//retourne l'orgunit du CDM ayant pour programID idCDM
 	//retourne null si le cdm n'a pas ete trouve
 	
-	boolean updateOrgUnit(String idCDM, OrgUnit newOrgUnit);
-	//remplace l'orgunit lie au cmd identifié par idCDM par newOrgUnit
+	OrgUnit updateOrgUnit(String idCDM, OrgUnit newOrgUnit);
+	//remplace l'orgunit du cdm ayant pour programID idCDM
 	//retourne null si le cdm n'a pas ete trouve
 }
