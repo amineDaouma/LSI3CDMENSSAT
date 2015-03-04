@@ -1,0 +1,29 @@
+<course id="CO_ABCTSB" ident="CO_ABCTSB">
+	<courseName><text>Mathématiques pour les nuls</text></courseName>
+	<courseCode codeSet="natureUE-EC">ABCTSB</courseCode>
+	<courseDescription>
+		<subBlock userDefined="0">
+		Ce cours est dispensé à l'école des extraterrestres. Il est dispensé par le charlot Shaddok. Alors attendez-vous à du lourd. Soyez bien outillés. 
+		</subBlock>
+		<subBlock userDefined="courseStructure">
+			<refCourse idRef="BC_SSSENU" ref="BC_SSSENU"/>
+			<refCourse idRef="BC_SSSIN1U" ref="BC_SSSIN1U"/>
+			<refCourse idRef="BC_SSSIN2U" ref="BC_SSSIN2U"/>
+			<refCourse idRef="BC_SSSMGU" ref="BC_SSSMGU"/>
+		</subBlock>
+	</courseDescription>
+	<level>1</level>
+	<learningObjectives>
+	<subBlock userDefined="0">Tous le monde</subBlock>
+	</learningObjectives>
+	<teachingPlace>
+		<adr>
+			<extadr>BP 01 </extadr>
+			<street>5 rue des hortencias</street>
+			<locality>22306</locality>
+			<region/>
+			<pcode>22306</pcode>
+			<country>Jupiter</country>
+		</adr>
+	</teachingPlace>
+</course>

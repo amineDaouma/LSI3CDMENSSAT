@@ -1,0 +1,25 @@
+<orgUnit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="fr-FR">
+    <orgUnitID>0350936C</orgUnitID>
+    <orgUnitName>
+      <text>UNIVERSITE DE RENNES 1</text>
+    </orgUnitName>
+    <orgUnitAcronym>RENNES 1</orgUnitAcronym>
+    <orgUnitKind orgType="universite"/>
+    <webLink>
+      <href>http://www.univ-rennes1.fr</href>
+      <linkName>Site officiel</linkName>
+    </webLink>
+    <orgUnitDescription/>
+    <contacts>
+      <contactData>
+	<contactName>
+	  <text>Université de Rennes 1</text>
+	</contactName>
+	<adr>
+	  <extadr> Adresse univ renne1</extadr>
+	</adr>
+	<telephone> 0000000000 </telephone>
+      </contactData>
+    </contacts>
+</orgUnit>
+  

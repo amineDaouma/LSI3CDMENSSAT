@@ -10,6 +10,7 @@ package fr.enssat.beans;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,9 +31,11 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.jvnet.hyperjaxb3.item.Item;
 import org.jvnet.hyperjaxb3.item.ItemUtils;
 import org.jvnet.jaxb2_commons.lang.Equals;
@@ -148,7 +151,7 @@ public class Program
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NCName")
     protected String userDefined;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     protected transient List<Program.ProgramSearchwordItem> searchwordItems;
 
@@ -970,7 +973,7 @@ public class Program
         @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
         @XmlSchemaType(name = "NCName")
         protected String item;
-        @XmlAttribute(name = "Hjid")
+        @XmlTransient
         protected Long hjid;
 
         /**

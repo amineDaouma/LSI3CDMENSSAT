@@ -2,13 +2,16 @@ package fr.enssat.services;
 
 import java.util.List;
 
+import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
 import fr.enssat.beans.OrgUnit;
 import fr.enssat.beans.Program;
 
 
 public interface CdmService  {
-
+	
+	public List<CDM> findAll();
+	public void uploadCDM(CDM cdm);
 	public List<Course> getAllCourses();
 	public void addCourse(Course c);
 	public void deleteCourseById(String ident);
@@ -27,7 +30,7 @@ public interface CdmService  {
 		//retourne null si le cdm n'est pas trouve
 		 
 		public CDM updateCDM (String idCDM,CDM newCDM);
-		//remplace le cours selectionne par newCourse et retourne findByID(idCDM) ou null si le cdm n'a pas ete trouvé 
+		//remplace le cours selectionne par newCourse et retourne findByID(idCDM) ou null si le cdm n'a pas ete trouvï¿½ 
 		
 		public void addCDM(CDM newCDM);
 		//ajoute un CDM
