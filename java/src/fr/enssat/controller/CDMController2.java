@@ -6,6 +6,7 @@ import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
 import fr.enssat.beans.OrgUnit;
 import fr.enssat.beans.Program;
+import fr.enssat.beans.SubProgram;
 import fr.enssat.services.CDMService2;
 import fr.enssat.services.CDMServiceImpl2;
 import fr.enssat.services.CourseService;
@@ -229,5 +230,93 @@ public class CDMController2 {
 	{
 		return programService.getProgram(idCDM);
 	}
+	
+	
+	
+	@Path("/{idCDM}/Program")
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getProgram(@PathParam("idCDM") String idCDM, Program newProgram) 
+	{
+		Program program = programService.updateProgram(idCDM, newProgram);
+		
+		
+		if (program != null) 
+		{
+			return Response.status(202).build();
+		}
+		else 
+		{
+			return Response.status(404).build();
+		}
+	}
+	
+	
+	@Path("/{idCDM}/Program/{subProgramID}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public SubProgram getSubProgram(@PathParam("idCDM") String idCDM, @PathParam("subProgramID") String subProgramID) 
+	{
+		return programService.getSubProgram(idCDM, subProgramID);
+	}
+	
+	@Path("/{idCDM}/Program/{subProgramID}")
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response updateSubProgram(@PathParam("idCDM") String idCDM, @PathParam("subProgramID") String subProgramID, SubProgram newSubProgram) 
+	{
+		SubProgram subProgram = programService.updateSubProgram(idCDM, subProgramID, newSubProgram);
+		
+		
+		if (subProgram != null) 
+		{
+			return Response.status(202).build();
+		}
+		else 
+		{
+			return Response.status(404).build();
+		}
+	}
+	
+	
+	@Path("/{idCDM}/Program")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response addSubProgram(@PathParam("idCDM") String idCDM, SubProgram newSubProgram) 
+	{
+		SubProgram subProgram = programService.addSubProgram(idCDM, newSubProgram);
+		
+		
+		if (subProgram != null) 
+		{
+			return Response.status(202).build();
+		}
+		else 
+		{
+			return Response.status(404).build();
+		}
+	}
+	
+	
+	@Path("/{idCDM}/Program/{subProgramID}")
+	@DELETE
+	public Response deleteSubProgram(@PathParam("idCDM") String idCDM, @PathParam("subProgramID") String subProgramID) 
+	{
+		SubProgram subProgram = programService.deleteSubProgram(idCDM, subProgramID);
+		
+		
+		if (subProgram != null) 
+		{
+			return Response.status(202).build();
+		}
+		else 
+		{
+			return Response.status(404).build();
+		}
+	}
+	
+	
+	
+	
 
 }
