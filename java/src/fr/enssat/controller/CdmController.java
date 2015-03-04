@@ -20,9 +20,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import fr.enssat.beans.Course;
-import fr.enssat.beans.OrgUnit;
-import fr.enssat.beans.Program;
+import fr.enssat.beans.*;
 import fr.enssat.services.CdmService;
 import fr.enssat.services.CdmServiceImpl;
 
@@ -34,6 +32,7 @@ public class CdmController {
 	public CdmController() {
 		super();
 	}
+	
 	@GET
 	@Path("/getCourses")
 	@Produces(MediaType.TEXT_XML)
@@ -69,6 +68,57 @@ public class CdmController {
 						   @FormParam("level") String level,
 						   @FormParam("teachingTerm") String teachingTerm){
 	    Course c = new Course();
+
+	    /*String cName=null;
+	    String code=null;
+	    String codeSet=null;
+	    String creditContent=null;
+	    String ectsCredits=null;
+	    List<SubBlock> subBlockDescription=null;
+	    List<SubBlock> subBlockLearning=null;
+	    List<SubBlock> subBlockRecommended=null;
+	    List<SubBlock> subBlockFormal=null;
+	    List<SubBlock> subBlockSyllabus=null;
+	    InfoBlock infoBlock=null;
+	    TeachingPlace teachingPlace=null;
+	    
+	    
+	    
+	    
+	    Text courseName= new Text();   
+	    courseName.setText(cName);
+	    CourseCode courseCode= new CourseCode();
+	    courseCode.setValue(code);
+	    courseCode.setCodeSet(codeSet);
+	    CourseDescription courseDescription = new CourseDescription();//?	    
+		courseDescription.setSubBlock(subBlockDescription);	    
+	    Credits credits = new Credits();
+	    credits.setContent(creditContent);
+	    credits.setECTScredits(ectsCredits);
+	    LearningObjectives learningObjectives= new LearningObjectives(); //?
+		learningObjectives.setSubBlock(subBlockLearning);
+	    
+	    RecommendedPrerequisites recommendedPrerequisites= new RecommendedPrerequisites();//?
+		recommendedPrerequisites.setSubBlock(subBlockRecommended);
+	    FormalPrerequisites formalPrerequisites= new FormalPrerequisites();
+		formalPrerequisites.setSubBlock(subBlockFormal);
+	    Syllabus syllabus= new Syllabus();
+		syllabus.setSubBlock(subBlockSyllabus);
+	    TeachingActivity teachingActivity= new TeachingActivity();
+		teachingActivity.setInfoBlock(infoBlock);
+	    c.setCourseName(courseName);
+	    c.setCourseCode(courseCode);
+	    c.setCourseDescription(courseDescription);
+	    c.setCredits(credits);
+	    c.setLearningObjectives(learningObjectives);
+	    c.setRecommendedPrerequisites(recommendedPrerequisites);
+	    c.setFormalPrerequisites(formalPrerequisites);
+		c.setTeachingPlace(teachingPlace);
+	    c.setSyllabus(syllabus);
+	    c.setTeachingActivity(teachingActivity);*/
+	    
+	    
+	    
 	    c.setId(ident);
 	    c.setIdent(ident);
 	    c.setLevel(level);
