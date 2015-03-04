@@ -15,22 +15,18 @@
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<!-- Rest -->
 		<jersey.version>1.8</jersey.version>
-		
+
 		<!-- DI -->
 		<guice-bridge.version>2.3.0</guice-bridge.version>
 		<guice-servlet.version>3.0</guice-servlet.version>
-		
 
-		
+
+
 		<!-- Plugins -->
-		<jetty.version>9.2.5.v20141112</jetty.version>
-		<maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
-		<maven-failsafe-plugin.version>2.17</maven-failsafe-plugin.version>
-		<jasmine-maven-plugin.version>1.3.1.5</jasmine-maven-plugin.version>
-		<maven-dependency-plugin.version>2.9</maven-dependency-plugin.version>
-
+		<!-- <jetty.version>9.2.5.v20141112</jetty.version> <maven-failsafe-plugin.version>2.17</maven-failsafe-plugin.version> 
+			<jasmine-maven-plugin.version>1.3.1.5</jasmine-maven-plugin.version> <maven-dependency-plugin.version>2.9</maven-dependency-plugin.version> -->
 		<!-- Test -->
-
+		<maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
 		<junit.version>4.11</junit.version>
 		<mockito.version>1.9.5</mockito.version>
 		<cucumber-junit.version>1.1.5</cucumber-junit.version>
@@ -38,9 +34,8 @@
 		<selenium-firefox-driver.version>2.44.0</selenium-firefox-driver.version>
 		<httpclient.version>4.3.6</httpclient.version>
 		<rest-assured.version>2.3.1</rest-assured.version>
-		<myTestSourceDirectory>${project.basedir}/src/fr/enssat/test</myTestSourceDirectory>
 	</properties>
-	
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -58,6 +53,15 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<testSourceDirectory>java/src</testSourceDirectory>
+					<testClassesDirectory>${project.build.directory}/classes</testClassesDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -106,8 +110,13 @@
 		</dependency>
 
 		<!-- Test dependencies -->
-		<!--dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
-			<version>4.8.1</version> </dependency -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<!-- <scope>test</scope> -->
+		</dependency>
+
 
 		<!-- Roundtrip -->
 		<dependency>

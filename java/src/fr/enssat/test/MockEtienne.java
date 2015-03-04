@@ -1,6 +1,8 @@
 package fr.enssat.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import org.junit.Test;
 
 import java.io.File;
 import java.util.List;
@@ -10,13 +12,11 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.BasicConfigurator;
-import org.junit.Test;
 
-import fr.enssat.beans.Course;
-import fr.enssat.services.CdmService;
-import fr.enssat.services.CdmServiceImpl;
+import fr.enssat.beans.*;
+import fr.enssat.services.*;
 
-public class Fonctionnalite {
+public class MockEtienne {
 	
 
 	private Course xmlToCourse() {

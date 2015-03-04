@@ -22,7 +22,7 @@ import fr.enssat.services.CdmServiceImpl;
 import fr.enssat.services.OrgUnitService;
 import fr.enssat.services.OrgUnitServiceImpl;
 
-public class Fonctionnalite_OrgUnitService {
+public class TestOrgUnitService {
 	
 	
 	

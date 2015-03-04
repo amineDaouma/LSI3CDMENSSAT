@@ -1,4 +1,4 @@
-package fr.enssat.test;
+package fr.enssat.test;	
 
 import static org.junit.Assert.*;
 
@@ -12,19 +12,11 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.BasicConfigurator;
 import org.junit.Test;
 
-import fr.enssat.beans.CDM;
-import fr.enssat.beans.Course;
-import fr.enssat.beans.OrgUnit;
-import fr.enssat.services.CDMService2;
-import fr.enssat.services.CDMServiceImpl2;
-import fr.enssat.services.CdmService;
-import fr.enssat.services.CdmServiceImpl;
-import fr.enssat.services.CourseService;
-import fr.enssat.services.CourseServiceImpl;
-import fr.enssat.services.OrgUnitService;
-import fr.enssat.services.OrgUnitServiceImpl;
+import fr.enssat.beans.*;
+import fr.enssat.services.*;
 
-public class Fonctionnalite_CourseService {
+
+public class TestCourseService {
 	
 //	public List <Course> findAll(String idCDM);
 //	public Course findByID(String idCDM, String IDCourse);
