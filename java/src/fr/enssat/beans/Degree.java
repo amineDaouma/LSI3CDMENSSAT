@@ -22,7 +22,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+
 import org.jvnet.jaxb2_commons.lang.Equals;
 import org.jvnet.jaxb2_commons.lang.EqualsStrategy;
 import org.jvnet.jaxb2_commons.lang.HashCode;
@@ -63,7 +65,7 @@ public class Degree
     @XmlAttribute(name = "degree", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String degree;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
 
     /**

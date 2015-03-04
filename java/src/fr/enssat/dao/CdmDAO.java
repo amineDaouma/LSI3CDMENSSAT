@@ -9,7 +9,8 @@ import fr.enssat.beans.Program;
 
 
 public interface CdmDAO {
-
+	
+	public List<CDM> findAll();
 	public void uploadCDM(CDM cdm);
 	public void addCourse(Course c);
 	public List<Course> getAllCourses();

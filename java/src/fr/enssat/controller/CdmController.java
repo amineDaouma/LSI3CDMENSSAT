@@ -45,6 +45,13 @@ public class CdmController {
 		super();
 	}
 	
+	
+	@GET
+	public List<CDM> findAll(){
+		return service.findAll();
+	}
+	
+	
 	@POST
 	@Path("/upload")
 	public void uploadCDM(String data){

@@ -10,6 +10,7 @@ package fr.enssat.beans;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,9 +34,11 @@ import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import org.jvnet.hyperjaxb3.item.MixedItem;
 import org.jvnet.hyperjaxb3.item.MixedItemUtils;
 import org.jvnet.jaxb2_commons.lang.Equals;
@@ -90,7 +93,7 @@ public class SubBlock implements Equals, HashCode
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "NMTOKEN")
     protected String userDefined;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
     protected transient List<SubBlock.SubBlockContentItem> contentItems;
 
@@ -282,7 +285,7 @@ public class SubBlock implements Equals, HashCode
         protected Object item;
         @XmlAttribute(name = "Text")
         protected String text;
-        @XmlAttribute(name = "Hjid")
+        @XmlTransient
         protected Long hjid;
 
         /**

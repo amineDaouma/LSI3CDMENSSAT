@@ -22,8 +22,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
+
 import org.jvnet.jaxb2_commons.lang.Equals;
 import org.jvnet.jaxb2_commons.lang.EqualsStrategy;
 import org.jvnet.jaxb2_commons.lang.HashCode;
@@ -68,7 +70,7 @@ public class Credits
     @XmlAttribute(name = "ECTScredits", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String ectScredits;
-    @XmlAttribute(name = "Hjid")
+    @XmlTransient
     protected Long hjid;
 
     /**

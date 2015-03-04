@@ -24,6 +24,8 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 
 
+
+
 import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
 import fr.enssat.beans.CourseCode;
@@ -60,6 +62,14 @@ public class CdmDAOImpl implements CdmDAO {
 		sessionFactory.close();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<CDM> findAll(){
+		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		return (List<CDM>) (session.createQuery("from CDM").list());
+	}
+	
 	@Override
 	public void addCourse(Course c) {
 
@@ -93,8 +103,6 @@ public class CdmDAOImpl implements CdmDAO {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		return session.createQuery("from Course").list();
-
-
 		
 	}
 

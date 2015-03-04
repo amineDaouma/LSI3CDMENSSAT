@@ -10,6 +10,7 @@ import fr.enssat.beans.Program;
 
 public interface CdmService  {
 	
+	public List<CDM> findAll();
 	public void uploadCDM(CDM cdm);
 	public List<Course> getAllCourses();
 	public void addCourse(Course c);

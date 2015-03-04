@@ -17,6 +17,10 @@ public class CdmServiceImpl implements CdmService {
 		super();
 	}
 
+	public List<CDM> findAll(){
+		return dao.findAll();
+	}
+	
 	public void uploadCDM(CDM cdm){
 		dao.uploadCDM(cdm);
 	}
