@@ -35,7 +35,7 @@ public class ProgramServiceImpl implements ProgramService
 	}
 
 	@Override
-	public Program updateSubProgram(String idCDM, String idSubProgram,
+	public SubProgram updateSubProgram(String idCDM, String idSubProgram,
 			SubProgram newSubProgram) 
 	{
 		// TODO Auto-generated method stub

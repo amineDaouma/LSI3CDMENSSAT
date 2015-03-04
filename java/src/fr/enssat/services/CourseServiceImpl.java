@@ -3,43 +3,47 @@ package fr.enssat.services;
 import java.util.List;
 
 import fr.enssat.beans.Course;
+import fr.enssat.dao.CdmDAO2;
+import fr.enssat.dao.CdmDAO2Impl;
+import fr.enssat.dao.CourseDAO;
+import fr.enssat.dao.CourseDAOImpl;
 
 public class CourseServiceImpl implements CourseService 
 {
-
+	private CourseDAO dao = new CourseDAOImpl() ;
 	@Override
 	public List<Course> findAll(String idCDM) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.findAll(idCDM);
 	}
 
 	@Override
 	public Course findByID(String idCDM, String IDCourse) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.findByID(idCDM, IDCourse);
 	}
 
 	@Override
 	public Course updateCours(String idCDM, String IDCourse, Course newCourse) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.updateCours(idCDM, IDCourse, newCourse);
 	}
 
 	@Override
 	public Course addCourse(String idCDM, Course newCourse) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.addCourse(idCDM, newCourse);
 	}
 
 	@Override
 	public Course removeCourse(String IDCDM, String idCourse) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.removeCourse(IDCDM, idCourse);
 	}
 
 }
