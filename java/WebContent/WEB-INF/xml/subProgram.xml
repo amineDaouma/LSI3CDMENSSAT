@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subProgram id="PR_I20032281" ident="PR_I20032281">
+	<programID>PR_I20032281</programID>
+	<programName>
+		<text>
+			Diplôme d'ingénieur de Shadok spécialité vapeur 32ème année
+		</text>
+	</programName>
+	<teachingPlace>
+		<adr>
+			<street>S.H.A.D.O.K.I. BP 008 98 rue des fourmis scientifiques</street>
+			<locality>TRIGUEROD</locality>
+			<pcode>282305</pcode>
+		</adr>
+	</teachingPlace>
+	<programDuration>Annee</programDuration>
+	<programStructure>
+		<header>découpage par brindille</header>
+		<subBlock>
+			<refCourse idRef="CO_TO4UCB" ref="CO_TO4UCB" />
+		</subBlock>
+	</programStructure>
+</subProgram>

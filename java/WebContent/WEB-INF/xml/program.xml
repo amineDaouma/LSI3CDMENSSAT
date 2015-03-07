@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<program xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	id="PR_I2003281" ident="PR_I2003281" userDefined="encours">
+	<programID>
+		PR_I2003281
+	</programID>
+	<programName>
+		<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique</text>
+	</programName>
+
+	<programCode codeSet="domaineDiplome">dol-ST</programCode>
+	<webLink>
+		<href>http://www.enssat.fr/fr_FR/formations/formation-ingenieur-specialite-optronique</href>
+		<linkName>Site web de la formation</linkName>
+	</webLink>
+	<programDescription>
+		<subBlock userDefined="0"> 
+			L'ingénieur en Optronique (OPT) est
+			capable de concevoir, développer et intégrer des systèmes à forte
+			dominante optique et optoélectronique ainsi que leur environnement
+			électronique et logiciel. Les débouchés concernent tous les domaines
+			de la photonique moderne tels que les télécommunications, l'imagerie,
+			la vision, les diagnostics et mesures optiques, l'instrumentation, la
+			métrologie. La compétence principale est la photonique. Elle est le
+			croisement de deux disciplines : l'optique et la physique. Elle
+			permet à l'ingénieur de maîtriser les techniques d'émission de
+			propagation et de détection de la lumière, en particulier celle du
+			laser. La compétence complémentaire associe l'électronique et
+			l'informatique industrielle. Elle permet à l'ingénieur d'intégrer un
+			système photonique dans un système complexe liant traitement de
+			l'information et temps réel.
+		</subBlock>
+		<subBlock userDefined="0" />
+	</programDescription>
+	<qualification>
+		<qualificationName>
+			<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique</text>
+		</qualificationName>
+		<qualificationDescription>
+			<subBlock userDefined="0">L'étudiant (e) est capable de :
+			</subBlock>
+			<subBlock userDefined="1"> concevoir, développer et intégrer des
+				systèmes à forte dominante optique et optoélectronique ainsi que
+				leur environnement électronique et logiciel,
+			</subBlock>
+			<subBlock userDefined="1"> maîtriser les techniques d'émission
+				de propagation et de détection de la lumière, en particulier celle
+				du laser,
+			</subBlock>
+			<subBlock userDefined="1"> intégrer un système photonique dans
+				un système complexe liant traitement de l'information et temps réel,
+			</subBlock>
+			<subBlock userDefined="1"> s'adapter aux multiples facettes de
+				la technologie très diffusante qu'est la photonique ainsi qu'à ses
+				évolutions,
+			</subBlock>
+			<subBlock userDefined="1"> intervenir dans des domaines
+				d'applications variés,
+			</subBlock>
+			<subBlock userDefined="1"> faire preuve d'ouverture d'esprit et
+				d'une aptitude à l'adaptation de ses connaissances.</subBlock>
+		</qualificationDescription>
+		<credits ECTScredits="180">180</credits>
+		<degree xmlns:cdm="http://cdm-fr.fr/2006/CDM-frSchema/" degree="" />
+		<profession>
+			<subBlock userDefined="0">En France, le titre d'ingénieur fait
+				l'objet d'une habilitation nationale régulière par la Commission des
+				Titres d'Ingenieur (CTI). Conformément à cette habilitation, les
+				diplômes Enssat peuvent exercer le métier d'ingénieur dès
+				l'obtention de leur diplôme.</subBlock>
+		</profession>
+		<studyQualification>
+			<subBlock userDefined="1"> Doctorat
+			</subBlock>
+			<subBlock userDefined="1"> Mastère spécialisé pour ingénieur
+			</subBlock>
+			<subBlock userDefined="0" />
+		</studyQualification>
+	</qualification>
+	<level />
+	<learningObjectives>
+		<subBlock userDefined="0"> L'ingénieur en Optronique (OPT) est
+			capable de concevoir, développer et intégrer des systèmes à forte
+			dominante optique et optoélectronique ainsi que leur environnement
+			électronique et logiciel. Les débouchés concernent tous les domaines
+			de la photonique moderne tels que les télécommunications, l'imagerie,
+			la vision, les diagnostics et mesures optiques, l'instrumentation, la
+			métrologie. La compétence principale est la photonique. Elle est le
+			croisement de deux disciplines : l'optique et la physique. Elle
+			permet à l'ingénieur de maîtriser les techniques d'émission de
+			propagation et de détection de la lumière, en particulier celle du
+			laser. La compétence complémentaire associe l'électronique et
+			l'informatique industrielle. Elle permet à l'ingénieur d'intégrer un
+			système photonique dans un système complexe liant traitement de
+			l'information et temps réel.
+		</subBlock>
+		<subBlock userDefined="0" />
+	</learningObjectives>
+	<formalPrerequisites>
+		<subBlock userDefined="0">Validation d'un minimum de 120 crédits
+			ECTS pour une admission en 1ere annee
+		</subBlock>
+		<subBlock userDefined="1"> Concours Classes Préparatoires aux
+			grandes écoles
+		</subBlock>
+		<subBlock userDefined="1"> ou Diplôme Universitaire de
+			Technologie
+		</subBlock>
+		<subBlock userDefined="1"> ou Diplôme d'Etudes Universitaires
+			Générales (L2 ou L3)
+		</subBlock>
+		<subBlock userDefined="1"> ou Brevet de Technicien Superieur (BTS
+			en lycée)
+		</subBlock>
+		<subBlock userDefined="0">Validation d'un minimum de 240 ECTS
+			pour l'admission en 2eme année de l'école
+		</subBlock>
+		<subBlock userDefined="1"> M1
+		</subBlock>
+		<subBlock userDefined="1"> niveau reconnu équivalent pour la
+			formation continue
+		</subBlock>
+		<subBlock userDefined="0" />
+	</formalPrerequisites>
+	<teachingPlace>
+		<adr>
+			<extadr>BP 447 6 rue de Kerampont</extadr>
+			<street>E.N.S.S.A.T.BP 4476 rue de Kerampont</street>
+			<locality>LANNION</locality>
+			<region />
+			<pcode>22305</pcode>
+			<country>FRANCE</country>
+		</adr>
+	</teachingPlace>
+	<infoBlock userDefined="cmp">920</infoBlock>
+	<programStructure>
+		<header>Découpage par année</header>
+		<refProgram idRef="PR_I20031101" ref="PR_I20031101" />
+		<refProgram idRef="PR_I20032281" ref="PR_I20032281" />
+		<refProgram idRef="PR_I20033281" ref="PR_I20033281" />
+	</programStructure>
+	
+	
+	<subProgram id="PR_I20031101" ident="PR_I20031101">
+		<programID>PR_I20031101</programID>
+		<programName>
+			<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique 1ère
+				année</text>
+		</programName>
+		<teachingPlace>
+			<adr>
+				<street>E.N.S.S.A.T. BP 447 6 rue de Kerampont</street>
+				<locality>LANNION</locality>
+				<pcode>22305</pcode>
+			</adr>
+		</teachingPlace>
+		<programDuration>Annee</programDuration>
+		<programStructure>
+			<header>découpage par semestre</header>
+			<subBlock>
+				<refCourse idRef="CO_TT3OCPB" ref="CO_TT3OCPB" />
+				<refCourse idRef="CO_TT3OGOB" ref="CO_TT3OGOB" />
+				<refCourse idRef="CO_TT3OMPB" ref="CO_TT3OMPB" />
+				<refCourse idRef="CO_TT3OTRB" ref="CO_TT3OTRB" />
+			</subBlock>
+		</programStructure>
+	</subProgram>
+
+	<subProgram id="PR_I20032281" ident="PR_I20032281">
+		<programID>PR_I20032281</programID>
+		<programName>
+			<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique 2ème
+				année</text>
+		</programName>
+		<teachingPlace>
+			<adr>
+				<street>E.N.S.S.A.T. BP 447 6 rue de Kerampont</street>
+				<locality>LANNION</locality>
+				<pcode>22305</pcode>
+			</adr>
+		</teachingPlace>
+		<programDuration>Annee</programDuration>
+		<programStructure>
+			<header>découpage par semestre</header>
+			<subBlock>
+				<refCourse idRef="CO_TO4UCB" ref="CO_TO4UCB" />
+			</subBlock>
+		</programStructure>
+	</subProgram>
+	
+	
+	<subProgram id="PR_I20033281" ident="PR_I20033281">
+		<programID>PR_I20033281</programID>
+		<programName>
+			<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique 3ème
+				année</text>
+		</programName>
+	</subProgram>
+</program>
+    
