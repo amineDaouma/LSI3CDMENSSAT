@@ -40,10 +40,8 @@ public class CDMController2 {
 	// retourner Liste des cdms
 	// risque de le pas marcher si on ne rajoute pas une classe listeCDM dans
 	// les beans
-	@Path("")
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<CDM> findAllCDM_JSON()
+	public List<CDM> findAllCDM()
 	{
 		return service.findAll();
 	}
@@ -68,12 +66,12 @@ public class CDMController2 {
 	}
 
 	// ajouter un cdm
-	// !!! prend une chaine de caraceres en entree
 	@Path("")
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
-	public Response addCDM(String newCDM) 
+	public Response addCDM(CDM newCDM) 
 	{
+		System.out.println(newCDM.getProgram().getProgramID());
 		CDM cdm = service.addCDM(newCDM);
 
 		if (cdm != null)
@@ -87,10 +85,11 @@ public class CDMController2 {
 	}
 
 	@Path("/{idCDM}")
-	@POST
+	@PUT
 	@Consumes(MediaType.APPLICATION_XML)
-	public Response updateCDM(String newCDM)
+	public Response updateCDM(CDM newCDM)
 	{
+		System.out.println(newCDM.getProgram().getProgramID());
 		CDM cdm = service.addCDM(newCDM);
 
 		if (cdm != null)
@@ -155,7 +154,7 @@ public class CDMController2 {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addCourse(@PathParam("idCDM") String idCDM, Course newCourse) 
 	{
-		System.out.println("test addcourse");
+		System.out.println(newCourse.getIdent());
 		Course course = courseService.addCourse(idCDM, newCourse);
 		if (course != null) 
 		{

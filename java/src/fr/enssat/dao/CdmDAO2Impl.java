@@ -11,6 +11,7 @@ import fr.enssat.beans.OrgUnit;
 
 public class CdmDAO2Impl implements CdmDAO2{
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<CDM> findAll() {
 		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
@@ -18,7 +19,7 @@ public class CdmDAO2Impl implements CdmDAO2{
 		session.beginTransaction();
 		
 		
-		return session.createQuery("from cdm").list();
+		return (List<CDM>) (session.createQuery("from CDM").list());
 	}
 
 	@Override
