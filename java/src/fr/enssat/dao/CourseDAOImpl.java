@@ -16,24 +16,28 @@ public class CourseDAOImpl implements CourseDAO{
 		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-				
-		return session.createQuery("from Course").list();
-	}
-
-	@Override
-	public Course findByID(String idCDM, String IDCourse) {
-		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
+		
 		List<CDM> cdms = session.createQuery("from cdm").list();
 		for (CDM cdm : cdms) {
 			if(cdm.getProgram().getProgramID().equals(idCDM)){
 				List<Course> courses=cdm.getCourse();
-				for (Course course : courses) {
-					if(course.getId().equals(IDCourse)){
-						return course;
-					}
-				}				
+				session.close();
+				sessionFactory.close();
+				return courses;		
+			}
+		}
+		session.close();
+		sessionFactory.close();
+		return null;
+	}
+
+	@Override
+	public Course findByID(String idCDM, String IDCourse) {
+
+		List<Course> courses=findAll(idCDM);
+		for (Course course : courses) {
+			if(course.getId().equals(IDCourse)){
+				return course;
 			}
 		}
 		return null;
