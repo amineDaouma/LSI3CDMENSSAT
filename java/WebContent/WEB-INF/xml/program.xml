@@ -5,54 +5,35 @@
 		PR_I2003281
 	</programID>
 	<programName>
-		<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique</text>
+		<text>Diplôme d'ingénieur de Shaddockie</text>
 	</programName>
 
 	<programCode codeSet="domaineDiplome">dol-ST</programCode>
 	<webLink>
-		<href>http://www.enssat.fr/fr_FR/formations/formation-ingenieur-specialite-optronique</href>
+		<href>http://www.shoddockie.fr/fr_FR/formations/formation-ingenieur-specialite-mesure de pression</href>
 		<linkName>Site web de la formation</linkName>
 	</webLink>
 	<programDescription>
 		<subBlock userDefined="0"> 
-			L'ingénieur en Optronique (OPT) est
-			capable de concevoir, développer et intégrer des systèmes à forte
-			dominante optique et optoélectronique ainsi que leur environnement
-			électronique et logiciel. Les débouchés concernent tous les domaines
-			de la photonique moderne tels que les télécommunications, l'imagerie,
-			la vision, les diagnostics et mesures optiques, l'instrumentation, la
-			métrologie. La compétence principale est la photonique. Elle est le
-			croisement de deux disciplines : l'optique et la physique. Elle
-			permet à l'ingénieur de maîtriser les techniques d'émission de
-			propagation et de détection de la lumière, en particulier celle du
-			laser. La compétence complémentaire associe l'électronique et
-			l'informatique industrielle. Elle permet à l'ingénieur d'intégrer un
-			système photonique dans un système complexe liant traitement de
-			l'information et temps réel.
+			Pour tous les amoureux des shadoks, voici les divers objets dérivés que j'ai trouvé au cours des années. 
+			Il en existe bien sur beaucoup d'autres qui ne sont pas référencés ici.
 		</subBlock>
 		<subBlock userDefined="0" />
 	</programDescription>
 	<qualification>
 		<qualificationName>
-			<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique</text>
+			<text>Diplôme d'ingénieur de SHADOKIE mesure de pression</text>
 		</qualificationName>
 		<qualificationDescription>
 			<subBlock userDefined="0">L'étudiant (e) est capable de :
 			</subBlock>
-			<subBlock userDefined="1"> concevoir, développer et intégrer des
-				systèmes à forte dominante optique et optoélectronique ainsi que
-				leur environnement électronique et logiciel,
+			<subBlock userDefined="1"> concevoir, développer et intégrer ,
 			</subBlock>
-			<subBlock userDefined="1"> maîtriser les techniques d'émission
-				de propagation et de détection de la lumière, en particulier celle
-				du laser,
+			<subBlock userDefined="1"> maîtriser les techniques 
 			</subBlock>
-			<subBlock userDefined="1"> intégrer un système photonique dans
-				un système complexe liant traitement de l'information et temps réel,
+			<subBlock userDefined="1"> intégrer un système 
 			</subBlock>
-			<subBlock userDefined="1"> s'adapter aux multiples facettes de
-				la technologie très diffusante qu'est la photonique ainsi qu'à ses
-				évolutions,
+			<subBlock userDefined="1"> s'adapter aux multiples facettes de la bêtise
 			</subBlock>
 			<subBlock userDefined="1"> intervenir dans des domaines
 				d'applications variés,
@@ -79,20 +60,20 @@
 	</qualification>
 	<level />
 	<learningObjectives>
-		<subBlock userDefined="0"> L'ingénieur en Optronique (OPT) est
-			capable de concevoir, développer et intégrer des systèmes à forte
-			dominante optique et optoélectronique ainsi que leur environnement
-			électronique et logiciel. Les débouchés concernent tous les domaines
-			de la photonique moderne tels que les télécommunications, l'imagerie,
-			la vision, les diagnostics et mesures optiques, l'instrumentation, la
-			métrologie. La compétence principale est la photonique. Elle est le
-			croisement de deux disciplines : l'optique et la physique. Elle
-			permet à l'ingénieur de maîtriser les techniques d'émission de
-			propagation et de détection de la lumière, en particulier celle du
-			laser. La compétence complémentaire associe l'électronique et
-			l'informatique industrielle. Elle permet à l'ingénieur d'intégrer un
-			système photonique dans un système complexe liant traitement de
-			l'information et temps réel.
+		<subBlock userDefined="0"> 
+			  Les cerveaux des Shadoks, en effet, avaient une capacité tout à fait limitée.
+			  Ils ne comportaient en tout que QUATRE CASES.
+			  Et encore, c'était pas toujours vrai parce que bien souvent il y en avait de bouchées. 
+			  Pour remplir les cases déjà, c'était pas facile et cela prenait un certain temps.
+			  C'est alors que commençait la difficulté parce que, quand les cases étaient pleines, 
+			  il n'y avait plus de place et le Shadok, on ne pouvait plus rien lui apprendre.
+			  Si on essayait quand même, alors obligatoirement il y avait une case qui se vidait pour faire de la place. 
+			
+			  De sorte que quand un Shadok avec une tête pleine voulait apprendre quelque chose, il fallait
+			  qu'il en oublie une autre.
+			  EXEMPLE : si un Shadok avait appris à marcher avec une case et que plus tard il ait appris trois 
+			  mots avec les autres cases, 
+			  eh bien, si en plus on voulait lui apprendre à faire du vélo, le Shadok ne savait plus marcher.
 		</subBlock>
 		<subBlock userDefined="0" />
 	</learningObjectives>
@@ -125,10 +106,10 @@
 	<teachingPlace>
 		<adr>
 			<extadr>BP 447 6 rue de Kerampont</extadr>
-			<street>E.N.S.S.A.T.BP 4476 rue de Kerampont</street>
-			<locality>LANNION</locality>
+			<street>SHADDOCKIE BP 12 rue des fourmis</street>
+			<locality>LA-BAS</locality>
 			<region />
-			<pcode>22305</pcode>
+			<pcode>874502</pcode>
 			<country>FRANCE</country>
 		</adr>
 	</teachingPlace>
@@ -144,14 +125,13 @@
 	<subProgram id="PR_I20031101" ident="PR_I20031101">
 		<programID>PR_I20031101</programID>
 		<programName>
-			<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique 1ère
-				année</text>
+			<text>Diplôme d'ingénieur de SHADOKIE 11ème année</text>
 		</programName>
 		<teachingPlace>
 			<adr>
-				<street>E.N.S.S.A.T. BP 447 6 rue de Kerampont</street>
-				<locality>LANNION</locality>
-				<pcode>22305</pcode>
+				<street>SHADDOCKIE BP 12 rue des fourmis</street>
+				<locality>LA-BAS</locality>
+				<pcode>874502</pcode>
 			</adr>
 		</teachingPlace>
 		<programDuration>Annee</programDuration>
@@ -169,14 +149,13 @@
 	<subProgram id="PR_I20032281" ident="PR_I20032281">
 		<programID>PR_I20032281</programID>
 		<programName>
-			<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique 2ème
-				année</text>
+			<text>Diplôme d'ingénieur de SHADOKIE 12ème année</text>
 		</programName>
 		<teachingPlace>
 			<adr>
-				<street>E.N.S.S.A.T. BP 447 6 rue de Kerampont</street>
-				<locality>LANNION</locality>
-				<pcode>22305</pcode>
+				<street>SHADDOCKIE BP 12 rue des fourmis</street>
+				<locality>LA-BAS</locality>
+				<pcode>874502</pcode>
 			</adr>
 		</teachingPlace>
 		<programDuration>Annee</programDuration>
@@ -192,8 +171,7 @@
 	<subProgram id="PR_I20033281" ident="PR_I20033281">
 		<programID>PR_I20033281</programID>
 		<programName>
-			<text>Diplôme d'ingénieur de l'ENSSAT spécialité optronique 3ème
-				année</text>
+			<text>Diplôme d'ingénieur de SHADOCKIE 13ème année</text>
 		</programName>
 	</subProgram>
 </program>
