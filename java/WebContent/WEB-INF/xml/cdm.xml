@@ -2,7 +2,7 @@
 	<orgUnit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="fr-FR">
     <orgUnitID>0350936C</orgUnitID>
     <orgUnitName>
-      <text>UNIVERSITE DE RENNES 1</text>
+      <text>UNIVERSITE DU PROF SHADOK</text>
     </orgUnitName>
     <orgUnitAcronym>RENNES 1</orgUnitAcronym>
     <orgUnitKind orgType="universite"/>
@@ -14,7 +14,7 @@
     <contacts>
       <contactData>
 	<contactName>
-	  <text>Université de Rennes 1</text>
+	  <text>UNIVERSITE DU PROF SHADOK</text>
 	</contactName>
 	<adr>
 	  <extadr> Adresse univ renne1</extadr>
