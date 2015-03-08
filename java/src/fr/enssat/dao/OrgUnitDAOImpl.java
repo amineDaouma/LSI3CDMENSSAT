@@ -1,13 +1,12 @@
 package fr.enssat.dao;
 
-import fr.enssat.beans.*;
-import AnnotationConfiguration;
-import CDM;
-import Course;
-import List;
-import Session;
-import SessionFactory;
+import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+
+import fr.enssat.beans.*;
 public class OrgUnitDAOImpl implements OrgUnitDAO{
 
 	@Override
@@ -31,21 +30,21 @@ public class OrgUnitDAOImpl implements OrgUnitDAO{
 	}
 
 	@Override
-	public boolean updateOrgUnit(String idCDM, OrgUnit newOrgUnit) {
+	public OrgUnit updateOrgUnit(String idCDM, OrgUnit newOrgUnit) {
 		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
 		OrgUnit orgUnit=getOrgUnit(idCDM);
 		if(orgUnit!=null){
-			newCourse.setHjid(course.getHjid());			
-			session.saveOrUpdate(newCourse);				
+			newOrgUnit.setHjid(orgUnit.getHjid());			
+			session.saveOrUpdate(newOrgUnit);				
 			session.getTransaction().commit();			
 			session.close();
 			sessionFactory.close();
-			return newCourse;			
+			return newOrgUnit;			
 		}
-		return false;
+		return null;
 	}
 
 }
