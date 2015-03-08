@@ -41,7 +41,7 @@ public class CdmTest {
 	private CDM xmlToCDM1() {
 		try {
 
-			File file = new File("WebContent/WEB-INF/xml/cdm1.xml");
+			File file = new File("WebContent/WEB-INF/xml/cdm2.xml");
 			JAXBContext jaxbContext = JAXBContext.newInstance(Course.class);
 
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
