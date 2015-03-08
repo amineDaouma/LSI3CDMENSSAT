@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
+import fr.enssat.beans.CourseList;
 import fr.enssat.beans.OrgUnit;
 import fr.enssat.beans.Program;
 import fr.enssat.beans.SubProgram;
@@ -124,10 +125,10 @@ public class CDMController2 {
 
 	@Path("/{idCDM}/courses")
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
 	public Response findAllCourses(@PathParam("idCDM") String idCDM)
 	{
-		List<Course> listeRetour = courseService.findAll(idCDM);
+		CourseList listeRetour = courseService.findAll(idCDM);
 		Response retour;
 		if (listeRetour != null) 
 		{

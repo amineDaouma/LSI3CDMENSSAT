@@ -1,18 +1,19 @@
 package fr.enssat.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
-
 import org.hibernate.classic.Session;
 
 import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
+import fr.enssat.beans.CourseList;
 
 public class CourseDAOImpl implements CourseDAO{
 
 	@Override
-	public List<Course> findAll(String idCDM) 
+	public CourseList findAll(String idCDM) 
 	{
 		
 		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
@@ -26,9 +27,17 @@ public class CourseDAOImpl implements CourseDAO{
 			{
 				
 				//debut traitement
-				System.out.println((List<Course>) cdm.getCourse());
-				List<Course> retour = (List<Course>) ( cdm.getCourse());
-				return retour;
+				
+				List<Course> retour = new ArrayList<Course>();
+				for(Course c:cdm.getCourse())
+				{
+					
+					retour.add(c);
+				}
+				
+				CourseList liste =  new CourseList();
+				liste.setListe(retour);
+				return liste;
 				
 				//fin traitement
 				

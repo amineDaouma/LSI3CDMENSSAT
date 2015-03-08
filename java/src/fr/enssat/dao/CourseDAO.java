@@ -1,11 +1,12 @@
 package fr.enssat.dao;
 
-import java.util.List;
+
 
 import fr.enssat.beans.Course;
+import fr.enssat.beans.CourseList;
 
 public interface CourseDAO {
-	public List <Course> findAll(String idCDM);
+	public CourseList findAll(String idCDM);
 	//retourne l'ensemble des cours d'un CDM identifie par idCDm
 	//retourne null si le cdm n'a pas ete trouve
 	

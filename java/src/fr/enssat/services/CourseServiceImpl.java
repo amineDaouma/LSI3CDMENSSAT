@@ -3,15 +3,15 @@ package fr.enssat.services;
 import java.util.List;
 
 import fr.enssat.beans.Course;
-
+import fr.enssat.beans.CourseList;
 import fr.enssat.dao.CourseDAO;
 import fr.enssat.dao.CourseDAOImpl;
 
 public class CourseServiceImpl implements CourseService 
 {
-	private CourseDAO dao = new CourseDAOImpl() ;
+	private CourseDAO dao = new CourseDAOImpl()   ;
 	@Override
-	public List<Course> findAll(String idCDM) 
+	public CourseList findAll(String idCDM) 
 	{
 		// TODO Auto-generated method stub
 		return dao.findAll(idCDM);
