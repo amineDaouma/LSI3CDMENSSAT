@@ -2,22 +2,24 @@ package fr.enssat.services;
 
 import fr.enssat.beans.Program;
 import fr.enssat.beans.SubProgram;
+import fr.enssat.dao.ProgramDAO;
+import fr.enssat.dao.ProgramDAOImpl;
 
 public class ProgramServiceImpl implements ProgramService
 {
+	
+	ProgramDAO dao = new  ProgramDAOImpl();
 
 	@Override
 	public Program getProgram(String idCDM) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getProgram(idCDM);
 	}
 
 	@Override
 	public Program updateProgram(String idCDM, Program newProgram) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return dao.updateProgram(idCDM, newProgram);
 	}
 
 	@Override
