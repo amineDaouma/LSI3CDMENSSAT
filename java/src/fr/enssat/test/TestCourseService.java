@@ -35,6 +35,9 @@ public class TestCourseService {
 		
 		CDM cdm = Parseur.xmlToCDM();
 		String id = cdm.getProgram().getId();
+		serviceCDM.addCDM(cdm);
+		
+		
 		
 		Course maths = Parseur.xmlToCourse(1);
 		String idMath = maths.getId();
@@ -53,7 +56,6 @@ public class TestCourseService {
 		mathsRecupere = serviceCourse.findByID(id, idMath);
 		assertNull("Suppression cours",mathsRecupere);
 		
-		serviceCDM.supprimeCDM(id);
 		
 	}
 
