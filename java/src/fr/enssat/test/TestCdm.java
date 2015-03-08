@@ -20,7 +20,7 @@ import fr.enssat.services.CDMServiceImpl2;
 import fr.enssat.services.CdmService;
 import fr.enssat.services.CdmServiceImpl;
 
-public class CdmTest {
+public class TestCdm {
 	
 	private CDM xmlToCDM() {
 		try {
@@ -67,15 +67,7 @@ public class CdmTest {
 		
 		return courseFound;
 	}*/
-	@Test
-	public void getCDMById(){
-		BasicConfigurator.configure();
-		CDM cdmTest = xmlToCDM();
-		CDMService2 service = new CDMServiceImpl2();
-		CDM cdmFound = service.findByID(cdmTest.getProgram().getId());
-		assertNotNull("cdm is found", cdmFound);
 
-	}
 	@Test
 	public void addCdm() {
 		BasicConfigurator.configure();
@@ -92,6 +84,16 @@ public class CdmTest {
 		System.out.println("le cdm recherché : "+cdmARecuperer);
 		
 		//service.supprimeCDM(cdm.getProgram().getProgramID());
+	}
+	
+	@Test
+	public void getCDMById(){
+		BasicConfigurator.configure();
+		CDM cdmTest = xmlToCDM();
+		CDMService2 service = new CDMServiceImpl2();
+		CDM cdmFound = service.findByID(cdmTest.getProgram().getId());
+		assertNotNull("cdm is found", cdmFound);
+
 	}
 
 	/*@Test

@@ -41,12 +41,13 @@ public class TestOrgUnitService {
 	
 		serviceCDM.addCDM(cdm);
 		OrgUnit orgUnitRecupere = serviceOrgunit.getOrgUnit(id);
-		assertTrue("get OrgUnit ", orgUnit.equals(orgUnitRecupere));
+		assertNotNull("get OrgUnit ", orgUnitRecupere);
 		
 		orgUnit = Parseur.xmlToOrgUnit(2);
 		serviceOrgunit.updateOrgUnit(id, orgUnit);
 		
 		orgUnitRecupere = serviceOrgunit.getOrgUnit(id);
+		assertNotNull("get OrgUnit update", orgUnitRecupere);
 		assertTrue("uptdate orgUnit", orgUnit.equals(orgUnitRecupere));
 		
 		
