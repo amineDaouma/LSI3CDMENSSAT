@@ -1,22 +1,26 @@
 package fr.enssat.services;
 
 import fr.enssat.beans.OrgUnit;
+import fr.enssat.dao.OrgUnitDAO;
+import fr.enssat.dao.OrgUnitDAOImpl;
 
 public class OrgUnitServiceImpl implements OrgUnitService 
 {
+	
+	OrgUnitDAO dao = new OrgUnitDAOImpl();
 
 	@Override
 	public OrgUnit getOrgUnit(String idCDM) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dao.getOrgUnit(idCDM);
 	}
 
 	@Override
 	public OrgUnit updateOrgUnit(String idCDM, OrgUnit newOrgUnit) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.updateOrgUnit(idCDM, newOrgUnit);
 	}
 
 }

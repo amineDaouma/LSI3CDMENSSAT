@@ -223,10 +223,19 @@ public class CDMController2 {
 
 	@Path("/{idCDM}/OrgUnit")
 	@PUT
-	@Produces(MediaType.APPLICATION_JSON)
-	public OrgUnit updateOrgUnit(@PathParam("idCDM") String idCDM) 
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateOrgUnit(@PathParam("idCDM") String idCDM,OrgUnit newOrgUnit) 
 	{
-		return orgUnitService.getOrgUnit(idCDM);
+		OrgUnit retour = orgUnitService.updateOrgUnit(idCDM, newOrgUnit);
+		
+		if (retour != null) 
+		{
+			return Response.status(200).build();
+		}
+		else 
+		{
+			return Response.status(404).build();
+		}
 	}
 
 	

@@ -68,7 +68,6 @@ public class CdmDAO2Impl implements CdmDAO2{
 				return cdm;
 			}
 		}
-		session.getTransaction().commit();
 		return null;
 		
 	}
@@ -85,7 +84,6 @@ public class CdmDAO2Impl implements CdmDAO2{
 			session.getTransaction().commit();			
 			return newCDM;			
 		}
-		session.getTransaction().commit();
 		return null;
 	}
 
@@ -100,7 +98,6 @@ public class CdmDAO2Impl implements CdmDAO2{
 			session.getTransaction().commit();		
 			return newCDM;
 		}else{
-			session.getTransaction().commit();
 			return null;
 		}
 	}
