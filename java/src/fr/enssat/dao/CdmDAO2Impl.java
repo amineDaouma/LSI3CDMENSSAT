@@ -80,7 +80,7 @@ public class CdmDAO2Impl implements CdmDAO2{
 		CDM cdm=findByID(idCDM);
 		if(cdm!=null){
 			newCDM.setHjid(cdm.getHjid());				
-			session.saveOrUpdate(newCDM);				
+			session.merge(newCDM);				
 			session.getTransaction().commit();			
 			return newCDM;			
 		}
