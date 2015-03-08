@@ -29,8 +29,7 @@
 		id="PR_I2001281" ident="PR_I2001281" userDefined="encours">
 		<programID>PR_I2001281</programID>
 		<programName>
-			<text>Diplôme d'ingénieur de l'ENSSAT spécialité logiciel et système
-				informatique</text>
+			<text>Diplôme d'ingénieur de l'ENSSAT spécialité électronique</text>
 		</programName>
 		<programCode codeSet="domaineDiplome">dol-ST</programCode>
 		<webLink>
@@ -38,13 +37,13 @@
 			<linkName>Site web de la formation</linkName>
 		</webLink>
 		<programDescription>
-			<subBlock userDefined="0">La spécialité Logiciel et Système
-				Informatique (LSI)</subBlock>
+			<subBlock userDefined="0">
+				Electronique (EII)</subBlock>
 		</programDescription>
 		<qualification>
 			<qualificationName>
-				<text>Diplôme d'ingénieur de l'ENSSAT spécialité logiciel et système
-					informatique</text>
+				<text>Diplôme d'ingénieur de l'ENSSAT 
+					Electronique</text>
 			</qualificationName>
 			<qualificationDescription>
 				<subBlock userDefined="0">L'étudiant(e) est capable de :
@@ -52,8 +51,7 @@
 				<subBlock userDefined="1">faire des choses </subBlock>
 			</qualificationDescription>
 			<credits ECTScredits="180">180</credits>
-			<degree xmlns:cdm="http://cdm-fr.fr/2006/CDM-frSchema/"
-				degree="" />
+			<degree xmlns:cdm="http://cdm-fr.fr/2006/CDM-frSchema/" degree="" />
 			<profession>
 				<subBlock userDefined="0">En France, le titre d'ingénieur fait
 					l'objet d'une habilitation nationale régulière par la Commission
@@ -61,9 +59,9 @@
 					les diplômes Enssat peuvent exercer le métier d'ingénieur dès
 					l'obtention de leur diplôme.</subBlock>
 				<subBlock userDefined="0">Des débouchés classiques pour le
-					diplôme LSI sont l'étude et le développement d'applications
-					informatiques complexes, ou l'administration de systèmes
-					informatiques.</subBlock>
+					diplôme EII sont l'étude et le développement d'applications
+					Electroniques complexes, ou l'administration de systèmes
+					Electroniques.</subBlock>
 				<subBlock userDefined="0" />
 			</profession>
 			<studyQualification>
@@ -74,8 +72,8 @@
 		</qualification>
 		<level />
 		<learningObjectives>
-			<subBlock userDefined="0">La spécialité Logiciel et Système
-				Informatique (LSI) garantit les fondamentaux de la profession
+			<subBlock userDefined="0">La 
+				Electronique (EII) garantit les fondamentaux de la profession
 				d'ingénieur informaticien</subBlock>
 		</learningObjectives>
 		<formalPrerequisites>
