@@ -41,6 +41,7 @@ public class CDMController2 {
 	// risque de le pas marcher si on ne rajoute pas une classe listeCDM dans
 	// les beans
 	@GET
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
 	public List<CDM> findAllCDM()
 	{
 		return service.findAll();
@@ -49,7 +50,7 @@ public class CDMController2 {
 	// retourner un cdm
 	@Path("/{idCDM}")
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
 	public Response findCDMByID(@PathParam("idCDM") String idCDM)
 	{
 		CDM cdm = service.findByID(idCDM);
@@ -66,7 +67,6 @@ public class CDMController2 {
 	}
 
 	// ajouter un cdm
-	@Path("")
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
 	public Response addCDM(CDM newCDM) 
@@ -125,9 +125,19 @@ public class CDMController2 {
 	@Path("/{idCDM}/courses")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Course> findAllCourses(@PathParam("idCDM") String idCDM)
+	public Response findAllCourses(@PathParam("idCDM") String idCDM)
 	{
-		return courseService.findAll(idCDM);
+		List<Course> listeRetour = courseService.findAll(idCDM);
+		Response retour;
+		if (listeRetour != null) 
+		{
+			retour = Response.status(200).entity(listeRetour).build();
+		}
+		else 
+		{
+			retour = Response.status(404).build();
+		}
+		return retour;
 	}
 
 	@Path("/{idCDM}/courses/{idCourse}")
@@ -136,11 +146,11 @@ public class CDMController2 {
 	public Response findCDMByID(@PathParam("idCDM") String idCDM,
 			@PathParam("idCourse") String idCourse)
 	{
-		CDM cdm = service.findByID(idCDM);
+		Course course = courseService.findByID(idCDM, idCourse);
 		Response retour;
-		if (cdm != null) 
+		if (course != null) 
 		{
-			retour = Response.status(200).entity(cdm).build();
+			retour = Response.status(200).entity(course).build();
 		}
 		else 
 		{
@@ -158,7 +168,7 @@ public class CDMController2 {
 		Course course = courseService.addCourse(idCDM, newCourse);
 		if (course != null) 
 		{
-			return Response.status(202).build();
+			return Response.status(200).build();
 		}
 		else 
 		{
@@ -168,7 +178,7 @@ public class CDMController2 {
 
 	@Path("/{idCDM}/courses/{idCourse}")
 	@PUT
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_XML)
 	public Response updateCourse(@PathParam("idCDM") String idCDM,
 			@PathParam("idCourse") String idCourse, Course newCourse) 
 	{

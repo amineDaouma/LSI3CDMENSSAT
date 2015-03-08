@@ -3,8 +3,7 @@ package fr.enssat.services;
 import java.util.List;
 
 import fr.enssat.beans.Course;
-import fr.enssat.dao.CdmDAO2;
-import fr.enssat.dao.CdmDAO2Impl;
+
 import fr.enssat.dao.CourseDAO;
 import fr.enssat.dao.CourseDAOImpl;
 
