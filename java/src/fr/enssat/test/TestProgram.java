@@ -26,7 +26,7 @@ public class TestProgram {
 	private Program xmlToProgram() {
 		try {
 
-			File file = new File("WebContent/xml/program.xml");
+			File file = new File("WebContent/WEB-INF/xml/program.xml");
 			JAXBContext jaxbContext = JAXBContext.newInstance(Program.class);
 
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
@@ -41,8 +41,8 @@ public class TestProgram {
 	private SubProgram xmlToSubProgram2() {
 		try {
 
-			File file = new File("WebContent/xml/subProgramUpdate.xml");
-			JAXBContext jaxbContext = JAXBContext.newInstance(Program.class);
+			File file = new File("WebContent/WEB-INF/xml/subProgramUpdate.xml");
+			JAXBContext jaxbContext = JAXBContext.newInstance(SubProgram.class);
 
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			SubProgram subProg = (SubProgram) jaxbUnmarshaller.unmarshal(file);
@@ -56,7 +56,7 @@ public class TestProgram {
 	private CDM xmlToCDM() {
 		try {
 
-			File file = new File("WebContent/xml/cdm.xml");
+			File file = new File("WebContent/WEB-INF/xml/cdm.xml");
 			JAXBContext jaxbContext = JAXBContext.newInstance(Course.class);
 
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
@@ -72,7 +72,7 @@ public class TestProgram {
 	private SubProgram xmlToSubProgram() {
 		try {
 
-			File file = new File("WebContent/xml/subProgram.xml");
+			File file = new File("WebContent/WEB-INF/xml/subProgram.xml");
 			JAXBContext jaxbContext = JAXBContext.newInstance(Program.class);
 
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
@@ -94,12 +94,15 @@ public class TestProgram {
  /*** Test de la méthode addSubProgram*/ 	
 		/*On crée le mock CDM et on le sauve*/
 		CDM mockCDM = xmlToCDM();
+		assertNotNull( "Probleme Marshling Program", mockCDM);
+		
 		String idCDM = mockCDM.getProgram().getProgramID();
 		CDMService2 cdmService = new CDMServiceImpl2();
 		cdmService.addCDM(mockCDM);
 		
 		/*On crée le mock subProgram à ajouter et on l'ajoute*/
 		SubProgram mockSubProg = xmlToSubProgram();
+		assertNotNull( "Probleme Marshling SubProgram", mockSubProg);
 		ProgramService service = new ProgramServiceImpl();
 		service.addSubProgram(idCDM, mockSubProg);
 		
