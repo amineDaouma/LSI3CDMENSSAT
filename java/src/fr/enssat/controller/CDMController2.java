@@ -72,7 +72,6 @@ public class CDMController2 {
 	@Consumes(MediaType.APPLICATION_XML)
 	public Response addCDM(CDM newCDM) 
 	{
-		System.out.println(newCDM.getProgram().getProgramID());
 		CDM cdm = service.addCDM(newCDM);
 
 		if (cdm != null)
@@ -84,13 +83,30 @@ public class CDMController2 {
 			return Response.status(404).build();
 		}
 	}
+	
+	@POST
+	@Consumes(MediaType.TEXT_PLAIN)
+	public Response uploadCDM(String newCDM)
+	{
+		CDM cdm = service.addCDM(newCDM);
+
+		if (cdm != null)
+		{
+			return Response.status(200).build();
+		} 
+		else
+		{
+			return Response.status(404).build();
+		}
+	}
+	
+	
 
 	@Path("/{idCDM}")
 	@PUT
 	@Consumes(MediaType.APPLICATION_XML)
 	public Response updateCDM(CDM newCDM)
 	{
-		System.out.println(newCDM.getProgram().getProgramID());
 		CDM cdm = service.addCDM(newCDM);
 
 		if (cdm != null)
@@ -102,6 +118,10 @@ public class CDMController2 {
 			return Response.status(404).build();
 		}
 	}
+	
+	
+	
+	
 
 	// supprime un CDM
 	@Path("/{idCDM}")
@@ -165,7 +185,6 @@ public class CDMController2 {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addCourse(@PathParam("idCDM") String idCDM, Course newCourse) 
 	{
-		System.out.println(newCourse.getIdent());
 		Course course = courseService.addCourse(idCDM, newCourse);
 		if (course != null) 
 		{
@@ -183,7 +202,6 @@ public class CDMController2 {
 	public Response updateCourse(@PathParam("idCDM") String idCDM,
 			@PathParam("idCourse") String idCourse, Course newCourse) 
 	{
-		System.out.println("test updatecourse");
 		Course course = courseService.updateCours(idCDM, idCourse, newCourse);
 		if (course != null) 
 		{
@@ -200,7 +218,6 @@ public class CDMController2 {
 	public Response deleteCourse(@PathParam("idCDM") String idCDM,
 			@PathParam("idCourse") String idCourse) 
 	{
-		System.out.println("test updatecourse");
 		Course course = courseService.removeCourse(idCDM, idCourse);
 		if (course != null) 
 		{
@@ -217,9 +234,19 @@ public class CDMController2 {
 	@Path("/{idCDM}/OrgUnit")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public OrgUnit getOrgUnit(@PathParam("idCDM") String idCDM) 
+	public Response getOrgUnit(@PathParam("idCDM") String idCDM) 
 	{
-		return orgUnitService.getOrgUnit(idCDM);
+		
+		OrgUnit orgUnit = orgUnitService.getOrgUnit(idCDM);
+		if (orgUnit!=null)
+		{
+			return Response.status(200).entity(orgUnit).build();
+		}
+		else
+		{
+			return Response.status(404).build();
+		}
+		
 	}
 
 	@Path("/{idCDM}/OrgUnit")
@@ -245,9 +272,18 @@ public class CDMController2 {
 	@Path("/{idCDM}/Program")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Program getProgram(@PathParam("idCDM") String idCDM) 
+	public Response getProgram(@PathParam("idCDM") String idCDM) 
 	{
-		return programService.getProgram(idCDM);
+		Program program = programService.getProgram(idCDM);
+		if (program!=null)
+		{
+			return Response.status(200).entity(program).build();
+		}
+		else
+		{
+			return Response.status(404).entity(program).build();
+		}
+		
 	}
 	
 	
@@ -258,7 +294,6 @@ public class CDMController2 {
 	public Response getProgram(@PathParam("idCDM") String idCDM, Program newProgram) 
 	{
 		Program program = programService.updateProgram(idCDM, newProgram);
-		
 		
 		if (program != null) 
 		{

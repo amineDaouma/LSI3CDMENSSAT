@@ -1,6 +1,11 @@
 package fr.enssat.services;
 
+import java.io.StringReader;
 import java.util.List;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 import fr.enssat.beans.CDM;
 import fr.enssat.dao.CdmDAO2;
@@ -48,8 +53,17 @@ public class CDMServiceImpl2 implements CDMService2
 	@Override
 	public CDM addCDM(String newCDM) 
 	{
-		// TODO Auto-generated method stub
-		return dao.addCDM(newCDM);
+		
+		try 
+		{
+			JAXBContext context = JAXBContext.newInstance(CDM.class);
+			Unmarshaller u = context.createUnmarshaller();
+			CDM cdm = (CDM) u.unmarshal(new StringReader(newCDM));
+			return dao.addCDM(cdm);
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }
