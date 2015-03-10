@@ -17,8 +17,6 @@ import fr.enssat.beans.Course;
 import fr.enssat.beans.OrgUnit;
 import fr.enssat.services.CDMService2;
 import fr.enssat.services.CDMServiceImpl2;
-import fr.enssat.services.CdmService;
-import fr.enssat.services.CdmServiceImpl;
 import fr.enssat.services.OrgUnitService;
 import fr.enssat.services.OrgUnitServiceImpl;
 
