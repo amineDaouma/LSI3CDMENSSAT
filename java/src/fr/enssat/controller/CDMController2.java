@@ -85,7 +85,7 @@ public class CDMController2 {
 	}
 	
 	@POST
-	@Consumes(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public Response uploadCDM(String newCDM)
 	{
 		CDM cdm = service.addCDM(newCDM);
