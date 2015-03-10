@@ -57,7 +57,7 @@ public class TestProgram {
 		try {
 
 			File file = new File("WebContent/WEB-INF/xml/cdm.xml");
-			JAXBContext jaxbContext = JAXBContext.newInstance(Course.class);
+			JAXBContext jaxbContext = JAXBContext.newInstance(CDM.class);
 
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			CDM cdm = (CDM) jaxbUnmarshaller.unmarshal(file);
@@ -73,7 +73,7 @@ public class TestProgram {
 		try {
 
 			File file = new File("WebContent/WEB-INF/xml/subProgram.xml");
-			JAXBContext jaxbContext = JAXBContext.newInstance(Program.class);
+			JAXBContext jaxbContext = JAXBContext.newInstance(SubProgram.class);
 
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			SubProgram subProg = (SubProgram) jaxbUnmarshaller.unmarshal(file);
@@ -107,17 +107,20 @@ public class TestProgram {
 		service.addSubProgram(idCDM, mockSubProg);
 		
 		/*On récupère de la bdd le mockCDM*/
-		Program mockProgRecup = cdmService.findByID(idCDM).getProgram();
+
+		/*Program mockProgRecup = cdmService.findByID(idCDM).getProgram();
 		List<SubProgram> listeSubProg = mockProgRecup.getSubProgram();
 	
-		assertNotNull("Test_ajout subProgram: liste des subProgram: ",listeSubProg);
-		SubProgram subPrgRecup = null;
+		assertNotNull("Test_ajout subProgram: liste des subProgram: ",listeSubProg);*/
+	//yyyyyyyy
+		SubProgram subPrgRecup = service.getSubProgram(idCDM, mockSubProg.getId());
 		
-		for (SubProgram sprg : listeSubProg) {
+		/*for (SubProgram sprg : listeSubProg) {
 			if (sprg.getId().equals(mockSubProg.getId())){
 				subPrgRecup = sprg;
 			}
 		}
+		*/
 		/*On check que le subPrg n'est pas null*/
 		assertNotNull("Test_ajout subProgram. Sous_program récupéré: ", subPrgRecup);
 		assertTrue("Test_ajout subProgram. Equality: ", mockSubProg.equals(subPrgRecup));
@@ -127,17 +130,18 @@ public class TestProgram {
 		mockSubProg = xmlToSubProgram2();
 		service.updateSubProgram(idCDM, idSubPrg, mockSubProg);
 		//Test
-		mockProgRecup = cdmService.findByID(idCDM).getProgram();
-		listeSubProg = mockProgRecup.getSubProgram();
+		/*mockProgRecup = cdmService.findByID(idCDM).getProgram();
+		listeSubProg = mockProgRecup.getSubProgram();*/
 	
-		assertNotNull("Test_ajout subProgram: liste des subProgram: ",listeSubProg);
+		subPrgRecup = service.getSubProgram(idCDM, mockSubProg.getId());
+		/*assertNotNull("Test_ajout subProgram: liste des subProgram: ",listeSubProg);
 		subPrgRecup = null;
 		
 		for (SubProgram sprg : listeSubProg) {
 			if (sprg.getId().equals(mockSubProg.getId())){
 				subPrgRecup = sprg;
 			}
-		}
+		}*/
 		/*On check que le subPrg n'est pas null*/
 		assertNotNull("Test_update subProgram. Sous_program récupéré: ", subPrgRecup);
 		assertTrue("Test_update subProgram. Equality: ", mockSubProg.equals(subPrgRecup));
@@ -149,7 +153,7 @@ public class TestProgram {
 		
 /*** Test pour la méthode deleteSubPrg*/
 		service.deleteSubProgram(idCDM, mockSubProg.getId());
-		mockProgRecup = cdmService.findByID(idCDM).getProgram();
+		/*mockProgRecup = cdmService.findByID(idCDM).getProgram();
 		listeSubProg = mockProgRecup.getSubProgram();
 	
 		assertNotNull("Test_ajout subProgram: liste des subProgram: ",listeSubProg);
@@ -158,7 +162,9 @@ public class TestProgram {
 			if (sprg.getId().equals(mockSubProg.getId())){
 				subPrgRecup = sprg;
 			}
-		}
+		}*/
+		
+		subPrgRecup = service.getSubProgram(mockCDM.getProgram().getProgramID(), mockSubProg.getId());
 		assertNull("Test_Suppr subPrg: ", subPrgRecup);
 		
 		cdmService.supprimeCDM(idCDM);
