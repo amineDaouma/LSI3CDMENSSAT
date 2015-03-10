@@ -70,7 +70,7 @@ public class CourseDAOImpl implements CourseDAO{
 		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
+		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list()); //on refait la fonctionnalite findAllCDM pour eviter d'ouvrir plusieurs sessions
 		
 		for (CDM cdm : cdms) 
 		{

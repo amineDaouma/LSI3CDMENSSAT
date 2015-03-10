@@ -1,3 +1,4 @@
+
 package fr.enssat.dao;
 
 import java.util.List;
@@ -5,30 +6,31 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.classic.Session;
-import fr.enssat.beans.CDM;
-import fr.enssat.beans.Course;
-import fr.enssat.beans.OrgUnit;
+
 import fr.enssat.beans.Program;
 import fr.enssat.beans.SubProgram;
 
-public class ProgramDAOImpl implements ProgramDAO {
+public class ProgramDAOImpl implements ProgramDAO 
+{
 
 	@Override
-	public Program getProgram(String idCDM) {
+	public Program getProgram(String idCDM) 
+	{	
 		Session session = CdmDAO2Impl.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
- 		List<Program> retour = (List<Program>) (session.createQuery("from Program").list());
+		List<Program> retour = (List<Program>) (session.createQuery("from Program").list());
 		for(Program program : retour)
 		{
 			if (program.getProgramID().equals(idCDM))
 			{
-			  return program;
+				return program;
 			}
 		}
+		return null;
 	}
 
 	@Override
-	public Program updateProgram(String idCDM, Program newProgram) {
+	public Program updateProgram(String idCDM, Program newProgram) {	
 		Session session = CdmDAO2Impl.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		List<Program> retour = (List<Program>) (session.createQuery("from Program").list());
@@ -42,6 +44,7 @@ public class ProgramDAOImpl implements ProgramDAO {
 				return newProgram;
 			}
 		}
+		return null;
 	}
 
 	@Override
@@ -63,8 +66,12 @@ public class ProgramDAOImpl implements ProgramDAO {
 				
 			}
 		}
+<<<<<<< HEAD
 		session.getTransaction().commit();
 		return null;		
+=======
+		return null;
+>>>>>>> 4c24f2ceec7062d19a426ce36172198e823da4eb
 	}
 
 	@Override
