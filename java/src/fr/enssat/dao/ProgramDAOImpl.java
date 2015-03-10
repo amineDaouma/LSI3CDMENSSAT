@@ -1,5 +1,10 @@
 package fr.enssat.dao;
 
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.classic.Session;
 import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
 import fr.enssat.beans.OrgUnit;
@@ -10,14 +15,33 @@ public class ProgramDAOImpl implements ProgramDAO {
 
 	@Override
 	public Program getProgram(String idCDM) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = CdmDAO2Impl.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+ 		List<Program> retour = (List<Program>) (session.createQuery("from Program").list());
+		for(Program program : retour)
+		{
+			if (program.getProgramID().equals(idCDM))
+			{
+			  return program;
+			}
+		}
 	}
 
 	@Override
 	public Program updateProgram(String idCDM, Program newProgram) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = CdmDAO2Impl.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		List<Program> retour = (List<Program>) (session.createQuery("from Program").list());
+		for(Program program : retour)
+		{
+			if (program.getProgramID().equals(idCDM))
+			{
+				newProgram.setHjid(program.getHjid());
+				session.merge(newProgram);
+				session.getTransaction().commit();
+				return newProgram;
+			}
+		}
 	}
 
 	@Override
