@@ -17,8 +17,7 @@ import fr.enssat.beans.CDM;
 import fr.enssat.beans.Course;
 import fr.enssat.services.CDMService2;
 import fr.enssat.services.CDMServiceImpl2;
-import fr.enssat.services.CdmService;
-import fr.enssat.services.CdmServiceImpl;
+
 
 public class TestCdm {
 	
