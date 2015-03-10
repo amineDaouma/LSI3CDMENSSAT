@@ -46,72 +46,117 @@ public class ProgramDAOImpl implements ProgramDAO {
 
 	@Override
 	public SubProgram getSubProgram(String idCDM, String subProgramID) {
-		Program program=getProgram(idCDM);
-		List<SubProgram> subPrograms=program.getSubProgram();
-		for (SubProgram subProgram : subPrograms) {
-			if(subProgram.getId().equals(subProgramID)){
-				return subProgram;				
+		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
+		for (CDM cdm : cdms)
+		{
+			if(cdm.getProgram().getProgramID().equals(idCDM))
+			{
+				List<SubProgram> subPrograms=cdm.getProgram().getSubProgram();
+				for (SubProgram subProgram : subPrograms) {
+					if(subProgram.getId().equals(subProgramID)){
+						return subProgram;				
+					} 
+				}
+				
 			}
-		}		
+		}
+		session.getTransaction().commit();
+		return null;		
 	}
 
 	@Override
 	public SubProgram addSubProgram(String idCDM, SubProgram subProgram) {
-		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-		Session session = sessionFactory.openSession();
+		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		
-		Program program=getProgram(idCDM);
-		
-		if(program!=null){
-			session.save(subProgram);		
-			session.getTransaction().commit();		
-			session.close();
-			sessionFactory.close();
-			return subProgram;
+		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
+		for (CDM cdm : cdms)
+		{
+			if(cdm.getProgram().getProgramID().equals(idCDM))
+			{
+				//debut traitement
+				for(SubProgram subProgramCourant  : cdm.getProgram().getSubProgram())
+				{
+					if(subProgramCourant.getId().equals(subProgram.getId()))
+					{
+						session.getTransaction().commit();
+						return null;
+					}
+				}
+				cdm.getProgram().getSubProgram().add(subProgram);
+				session.saveOrUpdate(cdm);
+				session.getTransaction().commit();
+				return subProgram;
+				//fin traitement
+			}
 		}
+		session.getTransaction().commit();
 		return null;
 	}
 
 	@Override
 	public SubProgram updateSubProgram(String idCDM, String idSubProgram,
 			SubProgram newSubProgram) {
-		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-		Session session = sessionFactory.openSession();
+		int tailleListe;
+		int i = 0;
+		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		
-		Program program=getProgram(idCDM);
-		List<SubProgram> subPrograms=program.getSubProgram();
-		for (SubProgram subProgram : subPrograms) {
-			if(subProgram.getId().equals(idSubProgram)){
-				newSubProgram.setHjid(subProgram.getHjid());			
-				session.saveOrUpdate(newSubProgram);				
-				session.getTransaction().commit();			
-				session.close();
-				sessionFactory.close();
-				return newSubProgram;
+		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
+		for (CDM cdm : cdms)
+		{
+			if(cdm.getProgram().getProgramID().equals(idCDM))
+			{
+				//debut traitement
+				List<SubProgram> listeSubPrograms = cdm.getProgram().getSubProgram();
+				tailleListe = listeSubPrograms.size();
+				for(i=0;i<tailleListe;i++)
+				{
+					if (listeSubPrograms.get(i).getId().equals(idSubProgram))
+					{
+						listeSubPrograms.set(i, newSubProgram);
+						session.saveOrUpdate(cdm);
+						session.getTransaction().commit();
+						return newSubProgram;
+					}
+					}
+				//fin traitement
+				//pour l'instant, pas de commit car pas de meilleure solution
 			}
 		}
+		session.getTransaction().commit();
 		return null;
 	}
 
 	@Override
 	public SubProgram deleteSubProgram(String idCDM, String idSubProgram) {
-		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-		Session session = sessionFactory.openSession();
+		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		
-		Program program=getProgram(idCDM);
-		List<SubProgram> subPrograms=program.getSubProgram();
-		for (SubProgram subProgram : subPrograms) {
-			if(subProgram.getId().equals(idSubProgram)){		
-				session.delete(subProgram);				
-				session.getTransaction().commit();			
-				session.close();
-				sessionFactory.close();
-				return subProgram;
+		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
+		for (CDM cdm : cdms)
+		{
+			if(cdm.getProgram().getProgramID().equals(idCDM))
+			{
+				//debut traitement
+				for(SubProgram subProgram : cdm.getProgram().getSubProgram())
+				{
+					if(subProgram.getId().equals(idSubProgram))
+					{
+						cdm.getProgram().getSubProgram().remove(subProgram);
+						session.saveOrUpdate(cdm);
+						session.getTransaction().commit();
+						return subProgram;
+					}
+				}
+				//fin traitement
+				//pour l'instant, pas de commit car pas de meilleure solution
 			}
 		}
+		session.getTransaction().commit();
 		return null;
 	}
 
