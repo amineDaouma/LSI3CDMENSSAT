@@ -66,12 +66,12 @@ public class ProgramDAOImpl implements ProgramDAO
 				
 			}
 		}
-<<<<<<< HEAD
+
 		session.getTransaction().commit();
 		return null;		
-=======
+
 		return null;
->>>>>>> 4c24f2ceec7062d19a426ce36172198e823da4eb
+
 	}
 
 	@Override
