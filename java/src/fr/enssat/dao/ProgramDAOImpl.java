@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.classic.Session;
 
+import fr.enssat.beans.CDM;
 import fr.enssat.beans.Program;
 import fr.enssat.beans.SubProgram;
 
@@ -69,8 +70,6 @@ public class ProgramDAOImpl implements ProgramDAO
 
 		session.getTransaction().commit();
 		return null;		
-
-		return null;
 
 	}
 
