@@ -21,7 +21,7 @@ public interface ProgramDAO {
 	//ajoute le subProgram subProgram
 	//retourne null si il existe deja un subProgram avec le meme id /ou\ si le cdm n'a pas ete trouve (et ne fait aucune modification du modele)
 	
-	Program updateSubProgram(String idCDM, String idSubProgram , SubProgram newSubProgram);
+	SubProgram updateSubProgram(String idCDM, String idSubProgram , SubProgram newSubProgram);
 	//remplace le Subprogram identifi� par idCDM et idSubProgram par newSubProgram
 	//retourne null si le cdm n'a pas ete trouve
 	
