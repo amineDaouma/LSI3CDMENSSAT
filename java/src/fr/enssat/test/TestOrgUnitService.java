@@ -27,7 +27,7 @@ public class TestOrgUnitService {
 
 	@Test
 	public void updateOrgUnit() {
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		
 		CDMService2 serviceCDM = new CDMServiceImpl2();
 		OrgUnitService serviceOrgunit = new OrgUnitServiceImpl();

@@ -69,7 +69,7 @@ public class TestCdm {
 
 	@Test
 	public void addCdm() {
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		
 		CDM cdm = xmlToCDM();
 		CDMService2 service = new CDMServiceImpl2();
@@ -87,7 +87,7 @@ public class TestCdm {
 	
 	@Test
 	public void getCDMById(){
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		CDM cdmTest = xmlToCDM();
 		CDMService2 service = new CDMServiceImpl2();
 		CDM cdmFound = service.findByID(cdmTest.getProgram().getId());
@@ -98,7 +98,7 @@ public class TestCdm {
 	/*@Test
 	public void deleteCdmById() {
 		
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		CDM cdm = xmlToCDM();
 
 		CDMService2 service = new CDMServiceImpl2();
@@ -117,7 +117,7 @@ public class TestCdm {
 	@Test
 	public void update(){
 		
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		
 		CDM cdm = xmlToCDM();
 		CDM cdm1 = xmlToCDM1();

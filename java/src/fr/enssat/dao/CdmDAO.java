@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.enssat.beans.CDM;
 
-public interface CdmDAO2 {
+public interface CdmDAO {
 	public List<CDM> findAll();
 	//retourne l'ensemble des CDM en base
 	

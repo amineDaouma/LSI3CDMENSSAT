@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>enssat</groupId>
 	<artifactId>enssat</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<packaging>war</packaging>
 	<name>cdm</name>
 
@@ -38,6 +38,14 @@
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>resources</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
@@ -64,8 +72,30 @@
 					<testClassesDirectory>${project.build.directory}/classes</testClassesDirectory>
 				</configuration>
 			</plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-dependency-plugin</artifactId>
+			    <version>2.3</version>
+			    <executions>
+				<execution>
+				    <phase>package</phase>
+				    <goals><goal>copy</goal></goals>
+				    <configuration>
+				        <artifactItems>
+				            <artifactItem>
+				                <groupId>com.github.jsimone</groupId>
+				                <artifactId>webapp-runner</artifactId>
+				                <version>7.0.57.2</version>
+				                <destFileName>webapp-runner.jar</destFileName>
+				            </artifactItem>
+				        </artifactItems>
+				    </configuration>
+				</execution>
+			    </executions>
+			</plugin>
 		</plugins>
 	</build>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
@@ -94,11 +124,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId>
-			<version>1.0.0.Final</version>
-		</dependency>
-		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
 			<version>2.2.4-1</version>
@@ -125,45 +150,11 @@
 			<version>0.5.6</version>
 		</dependency>
 
-		<!-- Hibernate Dependencies -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>3.6.5.Final</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- Database -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.0.5</version>
-			<scope>test</scope>
-		</dependency>
 
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId>
-			<version>1.0.0.Final</version>
-		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.6.5.Final</version>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.0.5</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-			<version>1.8</version>
-		</dependency>
-
-
-
 	</dependencies>
 </project>

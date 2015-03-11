@@ -16,7 +16,7 @@ public class CourseDAOImpl implements CourseDAO{
 	public CourseList findAll(String idCDM) 
 	{
 		
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
@@ -67,7 +67,7 @@ public class CourseDAOImpl implements CourseDAO{
 //		}
 //		return null;
 		
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list()); //on refait la fonctionnalite findAllCDM pour eviter d'ouvrir plusieurs sessions
@@ -118,7 +118,7 @@ public class CourseDAOImpl implements CourseDAO{
 		int tailleListe;
 		int i = 0;
 		
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
@@ -167,7 +167,7 @@ public class CourseDAOImpl implements CourseDAO{
 //			return newCourse;
 //		}
 //		return null;
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
@@ -219,7 +219,7 @@ public class CourseDAOImpl implements CourseDAO{
 //		return null;
 		
 		
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());

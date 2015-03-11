@@ -29,7 +29,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/cdms")
-public class CDMController2 {
+public class CDMController {
 	private CDMService2 service = new CDMServiceImpl2(); // Service li� aux cdms
 	CourseService courseService = new CourseServiceImpl(); // Service li� aux
 															// cours

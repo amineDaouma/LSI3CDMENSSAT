@@ -17,7 +17,7 @@ public class ProgramDAOImpl implements ProgramDAO
 	@Override
 	public Program getProgram(String idCDM) 
 	{	
-		Session session = CdmDAO2Impl.getSessionFactory().getCurrentSession();
+		Session session = CdmDAOImpl.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		List<Program> retour = (List<Program>) (session.createQuery("from Program").list());
 		for(Program program : retour)
@@ -32,7 +32,7 @@ public class ProgramDAOImpl implements ProgramDAO
 
 	@Override
 	public Program updateProgram(String idCDM, Program newProgram) {	
-		Session session = CdmDAO2Impl.getSessionFactory().getCurrentSession();
+		Session session = CdmDAOImpl.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		List<Program> retour = (List<Program>) (session.createQuery("from Program").list());
 		for(Program program : retour)
@@ -50,7 +50,7 @@ public class ProgramDAOImpl implements ProgramDAO
 
 	@Override
 	public SubProgram getSubProgram(String idCDM, String subProgramID) {
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
@@ -75,7 +75,7 @@ public class ProgramDAOImpl implements ProgramDAO
 
 	@Override
 	public SubProgram addSubProgram(String idCDM, SubProgram subProgram) {
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
@@ -108,7 +108,7 @@ public class ProgramDAOImpl implements ProgramDAO
 			SubProgram newSubProgram) {
 		int tailleListe;
 		int i = 0;
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
@@ -139,7 +139,7 @@ public class ProgramDAOImpl implements ProgramDAO
 
 	@Override
 	public SubProgram deleteSubProgram(String idCDM, String idSubProgram) {
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());

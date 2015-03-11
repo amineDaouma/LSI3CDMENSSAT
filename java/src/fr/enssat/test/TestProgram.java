@@ -90,7 +90,7 @@ public class TestProgram {
 
 	@Test
 	public void test_SubProgram() {
-		BasicConfigurator.configure();
+		////BasicConfigurator.configure();
  /*** Test de la méthode addSubProgram*/ 	
 		/*On crée le mock CDM et on le sauve*/
 		CDM mockCDM = xmlToCDM();
@@ -172,7 +172,7 @@ public class TestProgram {
 	
 	@Test
 	public void test_Program(){
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		
 	/**** Test de la méthode updateProgram et getProgram*/
 		/*On crée le mock CDM et on le sauve*/

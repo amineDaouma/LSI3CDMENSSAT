@@ -26,14 +26,14 @@ public class ProgramServiceImpl implements ProgramService
 	public SubProgram getSubProgram(String idCDM, String subProgramID) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getSubProgram(idCDM, subProgramID);
 	}
 
 	@Override
 	public SubProgram addSubProgram(String idCDM, SubProgram subProgram) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.addSubProgram(idCDM, subProgram);
 	}
 
 	@Override
@@ -41,14 +41,14 @@ public class ProgramServiceImpl implements ProgramService
 			SubProgram newSubProgram) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.updateSubProgram(idCDM, idSubProgram, newSubProgram);
 	}
 
 	@Override
 	public SubProgram deleteSubProgram(String idCDM, String idSubProgram) 
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return dao.deleteSubProgram(idCDM, idSubProgram);
 	}
 
 }

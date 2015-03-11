@@ -28,7 +28,7 @@ public class TestCourseService {
 	
 	@Test
 	public void addCourse() {
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		
 		CDMService2 serviceCDM = new CDMServiceImpl2();
 		CourseService serviceCourse = new CourseServiceImpl();

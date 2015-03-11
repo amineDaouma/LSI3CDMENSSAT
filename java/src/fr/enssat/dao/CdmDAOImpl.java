@@ -16,7 +16,7 @@ import fr.enssat.beans.CDM;
 //1. ON NE CREE PAS A CHAQUE FOIS UNE SESSION FACTORY ! C'est tres gourmand et deconseille
 //2. on n'utilise pas openSession mais getCurrentSession() qui utilisera la session en cours si il y en a une d'ouverte ou ouvrira une seesion sinon
 //3. comme notre session a ete ouverte par getCurentSession, un simpel commit fermera la session
-public class CdmDAO2Impl implements CdmDAO2{
+public class CdmDAOImpl implements CdmDAO{
 	
 	
 	// voir : https://developer.jboss.org/wiki/SessionsAndTransactions?_sscc=t

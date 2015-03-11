@@ -29,7 +29,7 @@ public class OrgUnitDAOImpl implements OrgUnitDAO{
 //		return null;
 		
 		
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
@@ -69,7 +69,7 @@ public class OrgUnitDAOImpl implements OrgUnitDAO{
 //		}
 //		return null;
 		
-		SessionFactory sessionFactory = CdmDAO2Impl.getSessionFactory();
+		SessionFactory sessionFactory = CdmDAOImpl.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<CDM> cdms = (List<CDM>) (session.createQuery("from CDM").list());
