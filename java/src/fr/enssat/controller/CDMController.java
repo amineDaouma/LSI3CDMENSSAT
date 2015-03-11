@@ -1,5 +1,9 @@
 package fr.enssat.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import fr.enssat.beans.CDM;
@@ -27,6 +31,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 @Path("/cdms")
 public class CDMController {
@@ -42,26 +50,21 @@ public class CDMController {
 	// risque de le pas marcher si on ne rajoute pas une classe listeCDM dans
 	// les beans
 	@GET
-	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
-	public List<CDM> findAllCDM()
-	{
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public List<CDM> findAllCDM() {
 		return service.findAll();
 	}
 
 	// retourner un cdm
 	@Path("/{idCDM}")
 	@GET
-	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
-	public Response findCDMByID(@PathParam("idCDM") String idCDM)
-	{
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Response findCDMByID(@PathParam("idCDM") String idCDM) {
 		CDM cdm = service.findByID(idCDM);
 		Response retour;
-		if (cdm != null) 
-		{
+		if (cdm != null) {
 			retour = Response.status(200).entity(cdm).build();
-		} 
-		else
-		{
+		} else {
 			retour = Response.status(404).build();
 		}
 		return retour;
@@ -70,71 +73,91 @@ public class CDMController {
 	// ajouter un cdm
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
-	public Response addCDM(CDM newCDM) 
-	{
+	public Response addCDM(CDM newCDM) {
 		CDM cdm = service.addCDM(newCDM);
 
-		if (cdm != null)
-		{
+		if (cdm != null) {
 			return Response.status(202).build();
-		} 
-		else
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public Response uploadCDM(String newCDM)
-	{
+	public Response uploadCDM(String newCDM) {
 		CDM cdm = service.addCDM(newCDM);
 
-		if (cdm != null)
-		{
+		if (cdm != null) {
 			return Response.status(200).build();
-		} 
-		else
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
-	
-	
+
+	@Path("download/{idCDM}")
+	@GET
+	public Response downLoadCDM(@PathParam("idCDM") String idCDM) throws UnsupportedEncodingException {
+		StringWriter sw = new StringWriter();
+		String chaineCDM = "";
+
+		Response retour;
+
+		CDM cdm = service.findByID(idCDM);
+
+		if (cdm != null) {
+
+			try {
+
+				JAXBContext jaxbContext = JAXBContext.newInstance(CDM.class);
+				Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+				// output pretty printed
+				jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
+						true);
+
+				jaxbMarshaller.marshal(cdm, sw);
+				chaineCDM = sw.toString();
+				InputStream is;
+				is = new ByteArrayInputStream(chaineCDM.getBytes("UTF-8"));
+
+				ResponseBuilder response = Response.ok((Object) is);
+				response.header("Content-Disposition",
+						"attachment; filename=\"" + idCDM + ".xml\"");
+				retour = response.status(200).build();
+
+			} catch (JAXBException e) {
+				e.printStackTrace();
+				retour = Response.status(404).build();
+			}
+		} else {
+			retour = Response.status(404).build();
+		}
+
+		return retour;
+	}
 
 	@Path("/{idCDM}")
 	@PUT
 	@Consumes(MediaType.APPLICATION_XML)
-	public Response updateCDM(CDM newCDM)
-	{
+	public Response updateCDM(CDM newCDM) {
 		CDM cdm = service.addCDM(newCDM);
 
-		if (cdm != null)
-		{
+		if (cdm != null) {
 			return Response.status(202).build();
-		} 
-		else
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
-	
-	
-	
-	
 
 	// supprime un CDM
 	@Path("/{idCDM}")
 	@DELETE
-	public Response deleteCDM(@PathParam("idCDM") String idCDM) 
-	{
+	public Response deleteCDM(@PathParam("idCDM") String idCDM) {
 		Response retour;
-		if (service.supprimeCDM(idCDM) != null) 
-		{
+		if (service.supprimeCDM(idCDM) != null) {
 			retour = Response.status(200).build();
-		} 
-		else
-		{
+		} else {
 			retour = Response.status(404).build();
 		}
 
@@ -145,17 +168,13 @@ public class CDMController {
 
 	@Path("/{idCDM}/courses")
 	@GET
-	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
-	public Response findAllCourses(@PathParam("idCDM") String idCDM)
-	{
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Response findAllCourses(@PathParam("idCDM") String idCDM) {
 		CourseList listeRetour = courseService.findAll(idCDM);
 		Response retour;
-		if (listeRetour != null) 
-		{
+		if (listeRetour != null) {
 			retour = Response.status(200).entity(listeRetour).build();
-		}
-		else 
-		{
+		} else {
 			retour = Response.status(404).build();
 		}
 		return retour;
@@ -165,16 +184,12 @@ public class CDMController {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response findCDMByID(@PathParam("idCDM") String idCDM,
-			@PathParam("idCourse") String idCourse)
-	{
+			@PathParam("idCourse") String idCourse) {
 		Course course = courseService.findByID(idCDM, idCourse);
 		Response retour;
-		if (course != null) 
-		{
+		if (course != null) {
 			retour = Response.status(200).entity(course).build();
-		}
-		else 
-		{
+		} else {
 			retour = Response.status(404).build();
 		}
 		return retour;
@@ -183,15 +198,11 @@ public class CDMController {
 	@Path("/{idCDM}/courses")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addCourse(@PathParam("idCDM") String idCDM, Course newCourse) 
-	{
+	public Response addCourse(@PathParam("idCDM") String idCDM, Course newCourse) {
 		Course course = courseService.addCourse(idCDM, newCourse);
-		if (course != null) 
-		{
+		if (course != null) {
 			return Response.status(200).build();
-		}
-		else 
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
@@ -200,15 +211,11 @@ public class CDMController {
 	@PUT
 	@Consumes(MediaType.APPLICATION_XML)
 	public Response updateCourse(@PathParam("idCDM") String idCDM,
-			@PathParam("idCourse") String idCourse, Course newCourse) 
-	{
+			@PathParam("idCourse") String idCourse, Course newCourse) {
 		Course course = courseService.updateCours(idCDM, idCourse, newCourse);
-		if (course != null) 
-		{
+		if (course != null) {
 			return Response.status(202).build();
-		} 
-		else
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
@@ -216,15 +223,11 @@ public class CDMController {
 	@Path("/{idCDM}/courses/{idCourse}")
 	@DELETE
 	public Response deleteCourse(@PathParam("idCDM") String idCDM,
-			@PathParam("idCourse") String idCourse) 
-	{
+			@PathParam("idCourse") String idCourse) {
 		Course course = courseService.removeCourse(idCDM, idCourse);
-		if (course != null) 
-		{
+		if (course != null) {
 			return Response.status(202).build();
-		}
-		else 
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
@@ -234,143 +237,111 @@ public class CDMController {
 	@Path("/{idCDM}/OrgUnit")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getOrgUnit(@PathParam("idCDM") String idCDM) 
-	{
-		
+	public Response getOrgUnit(@PathParam("idCDM") String idCDM) {
+
 		OrgUnit orgUnit = orgUnitService.getOrgUnit(idCDM);
-		if (orgUnit!=null)
-		{
+		if (orgUnit != null) {
 			return Response.status(200).entity(orgUnit).build();
-		}
-		else
-		{
+		} else {
 			return Response.status(404).build();
 		}
-		
+
 	}
 
 	@Path("/{idCDM}/OrgUnit")
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updateOrgUnit(@PathParam("idCDM") String idCDM,OrgUnit newOrgUnit) 
-	{
+	public Response updateOrgUnit(@PathParam("idCDM") String idCDM,
+			OrgUnit newOrgUnit) {
 		OrgUnit retour = orgUnitService.updateOrgUnit(idCDM, newOrgUnit);
-		
-		if (retour != null) 
-		{
+
+		if (retour != null) {
 			return Response.status(200).build();
-		}
-		else 
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
 
-	
 	// Methodes relatives aux program
 
 	@Path("/{idCDM}/Program")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getProgram(@PathParam("idCDM") String idCDM) 
-	{
+	public Response getProgram(@PathParam("idCDM") String idCDM) {
 		Program program = programService.getProgram(idCDM);
-		if (program!=null)
-		{
+		if (program != null) {
 			return Response.status(200).entity(program).build();
-		}
-		else
-		{
+		} else {
 			return Response.status(404).entity(program).build();
 		}
-		
+
 	}
-	
-	
-	
+
 	@Path("/{idCDM}/Program")
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getProgram(@PathParam("idCDM") String idCDM, Program newProgram) 
-	{
+	public Response getProgram(@PathParam("idCDM") String idCDM,
+			Program newProgram) {
 		Program program = programService.updateProgram(idCDM, newProgram);
-		
-		if (program != null) 
-		{
+
+		if (program != null) {
 			return Response.status(202).build();
-		}
-		else 
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
-	
-	
+
 	@Path("/{idCDM}/Program/{subProgramID}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public SubProgram getSubProgram(@PathParam("idCDM") String idCDM, @PathParam("subProgramID") String subProgramID) 
-	{
+	public SubProgram getSubProgram(@PathParam("idCDM") String idCDM,
+			@PathParam("subProgramID") String subProgramID) {
 		return programService.getSubProgram(idCDM, subProgramID);
 	}
-	
+
 	@Path("/{idCDM}/Program/{subProgramID}")
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateSubProgram(@PathParam("idCDM") String idCDM, @PathParam("subProgramID") String subProgramID, SubProgram newSubProgram) 
-	{
-		SubProgram subProgram = programService.updateSubProgram(idCDM, subProgramID, newSubProgram);
-		
-		
-		if (subProgram != null) 
-		{
+	public Response updateSubProgram(@PathParam("idCDM") String idCDM,
+			@PathParam("subProgramID") String subProgramID,
+			SubProgram newSubProgram) {
+		SubProgram subProgram = programService.updateSubProgram(idCDM,
+				subProgramID, newSubProgram);
+
+		if (subProgram != null) {
 			return Response.status(202).build();
-		}
-		else 
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
-	
-	
+
 	@Path("/{idCDM}/Program")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response addSubProgram(@PathParam("idCDM") String idCDM, SubProgram newSubProgram) 
-	{
-		SubProgram subProgram = programService.addSubProgram(idCDM, newSubProgram);
-		
-		
-		if (subProgram != null) 
-		{
+	public Response addSubProgram(@PathParam("idCDM") String idCDM,
+			SubProgram newSubProgram) {
+		SubProgram subProgram = programService.addSubProgram(idCDM,
+				newSubProgram);
+
+		if (subProgram != null) {
 			return Response.status(202).build();
-		}
-		else 
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
-	
-	
+
 	@Path("/{idCDM}/Program/{subProgramID}")
 	@DELETE
-	public Response deleteSubProgram(@PathParam("idCDM") String idCDM, @PathParam("subProgramID") String subProgramID) 
-	{
-		SubProgram subProgram = programService.deleteSubProgram(idCDM, subProgramID);
-		
-		
-		if (subProgram != null) 
-		{
+	public Response deleteSubProgram(@PathParam("idCDM") String idCDM,
+			@PathParam("subProgramID") String subProgramID) {
+		SubProgram subProgram = programService.deleteSubProgram(idCDM,
+				subProgramID);
+
+		if (subProgram != null) {
 			return Response.status(202).build();
-		}
-		else 
-		{
+		} else {
 			return Response.status(404).build();
 		}
 	}
-	
-	
-	
-	
 
 }
