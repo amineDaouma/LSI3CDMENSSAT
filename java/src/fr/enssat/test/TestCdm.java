@@ -2,76 +2,21 @@ package fr.enssat.test;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
 import java.util.List;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
-
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Test;
 
 import fr.enssat.beans.CDM;
-import fr.enssat.beans.Course;
 import fr.enssat.services.CDMService2;
 import fr.enssat.services.CDMServiceImpl2;
 
 
 public class TestCdm {
 	
-	private CDM xmlToCDM() {
-		try {
-
-			File file = new File("WebContent/WEB-INF/xml/cdm.xml");
-			JAXBContext jaxbContext = JAXBContext.newInstance(Course.class);
-
-			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			CDM cdm = (CDM) jaxbUnmarshaller.unmarshal(file);
-			return cdm;
-
-		} catch (JAXBException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	private CDM xmlToCDM1() {
-		try {
-
-			File file = new File("WebContent/WEB-INF/xml/cdm2.xml");
-			JAXBContext jaxbContext = JAXBContext.newInstance(Course.class);
-
-			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			CDM cdm = (CDM) jaxbUnmarshaller.unmarshal(file);
-			return cdm;
-
-		} catch (JAXBException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	
-
-	/*private Course getCdmById (List<Course> listeCours, String id) {
-	
-		Course courseFound = null;
-		for (Course course : listeCours) {
-			if (course.getId().equals(id)){
-				courseFound = course;
-			}
-		}
 		
-		return courseFound;
-	}*/
-
 	@Test
 	public void addCdm() {
-		//BasicConfigurator.configure();
 		
-		CDM cdm = xmlToCDM();
+		CDM cdm = Parseur.xmlToCDM();
 		CDMService2 service = new CDMServiceImpl2();
 		service.addCDM(cdm);
 	
@@ -87,8 +32,7 @@ public class TestCdm {
 	
 	@Test
 	public void getCDMById(){
-		//BasicConfigurator.configure();
-		CDM cdmTest = xmlToCDM();
+		CDM cdmTest = Parseur.xmlToCDM();
 		CDMService2 service = new CDMServiceImpl2();
 		CDM cdmFound = service.findByID(cdmTest.getProgram().getId());
 		assertNotNull("cdm is found", cdmFound);
@@ -98,7 +42,6 @@ public class TestCdm {
 	/*@Test
 	public void deleteCdmById() {
 		
-		//BasicConfigurator.configure();
 		CDM cdm = xmlToCDM();
 
 		CDMService2 service = new CDMServiceImpl2();
@@ -117,10 +60,9 @@ public class TestCdm {
 	@Test
 	public void update(){
 		
-		//BasicConfigurator.configure();
 		
-		CDM cdm = xmlToCDM();
-		CDM cdm1 = xmlToCDM1();
+		CDM cdm = Parseur.xmlToCDM();
+		CDM cdm1 = Parseur.xmlToCDM2();
 
 
 		CDMService2 service = new CDMServiceImpl2();
