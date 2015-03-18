@@ -41,4 +41,4 @@ java -jar target/dependency/webapp-runner.jar target/ENSSAT-1.0.war
 
 Vous pouvez maintenant l'interroger via un client REST comme POSTman,Advanced REST Client (Chrome,Chromium) ou RESTClient (Mozilla Firefox) 
 
-*Exemple de requête : http://localhost:8080/"à changer"/rest/CDMs*
+*Exemple de requête : http://localhost:8080/rest/CDMs*
