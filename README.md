@@ -1,6 +1,12 @@
 #Installation du projet d'edition de CDM de l'ENSSAT
 
-##Prérequis: Distribution Linux (Ubuntu 14.04 dans notre cas)
+##Prérequis: 
+
+- Distribution Linux (Ubuntu 14.04 dans notre cas)
+- Maven
+- MySQL
+
+##Installation
 
 ###Maven
 
