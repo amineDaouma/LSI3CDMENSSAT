@@ -10,16 +10,15 @@
 
 ###Maven
 
-Dans un premier temps veuillez vous assurer que Maven soit installé sur votre système et que sa version est au moins 3.0.5. Dans le cas contraire, veuillez vous assurer de desinstaller votre version de maven et d'installer la plus récente
+Dans un premier temps veuillez vous assurer que Maven soit installé sur votre système et que sa version est au moins 3.0.5. Dans le cas contraire, veuillez vous assurer de désinstaller votre version de maven et d'installer la plus récente.
 
 ###Base de données
 
 Ce projet nécessite l'utilisation d'une base de données, et donc d'un système de gestion de base de données qui est 
 MySQL.Il faut utiliser le fichier *script_bdd.sql* afin de créer la base de données et sa structure.
 
-**Commandes terminal** :
-
-Allez dans le repertoire où vous avez cloné les sources du dépôt 
+**Commandes** :
+Ouvrez un terminal et allez dans le repertoire où vous avez cloné les sources du dépôt 
 ```
 cd chemin_sources_git
 mysql -u root -p
@@ -28,8 +27,9 @@ source script_bdd.sql
 La base de données est maintenant installée.
 
 ###Construction et lancement de l'application
+Dans un terminal, entrez les commandes suivantes : 
 ```
-cd java
+cd chemin_sources_git/java
 mvn clean
 mvn package
 ```
